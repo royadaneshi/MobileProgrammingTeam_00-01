@@ -24,4 +24,6 @@
     <string name="password">Password</string>
     <string name="universityname">universityName</string>
     <string name="completename">completeName</string>
+    <string name="student_panel">Student Panel</string>
+    <string name="professor_panel">Professor Panel</string>
 </resources>
