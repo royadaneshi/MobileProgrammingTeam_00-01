@@ -21,6 +21,8 @@ public class StudentFragment extends Fragment {
     private EditText studentId;
     private EditText password;
     private TextView textView;
+    private Button back;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class StudentFragment extends Fragment {
         studentId = view.findViewById(R.id.studentIdStudent);
         password = view.findViewById(R.id.passwordStudent);
         textView = view.findViewById(R.id.textViewStudent);
+        back = view.findViewById(R.id.backBtnStudent);
 
         registerStudent.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
@@ -50,6 +53,14 @@ public class StudentFragment extends Fragment {
                 } else {
                     textView.setText("Fill all the fields");
                 }
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                startActivity(myIntent);
             }
         });
         return view;

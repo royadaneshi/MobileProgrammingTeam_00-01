@@ -39,17 +39,26 @@
         android:inputType="textPersonName"
         android:text="@string/universityname" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="99dp" />
+
     <Button
         android:id="@+id/registerBtnProfesssor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:insetLeft="40dp"
-        android:insetTop="100dp"
-        android:insetRight="40dp"
         android:text="@string/register" />
 
     <TextView
         android:id="@+id/textViewProfessor"
         android:layout_width="match_parent"
-        android:layout_height="58dp" />
+        android:layout_height="83dp" />
+
+    <Button
+        android:id="@+id/backBtnProfessor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="back" />
+
 </LinearLayout>

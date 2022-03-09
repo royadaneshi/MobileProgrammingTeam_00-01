@@ -39,18 +39,26 @@
         android:hint="@string/studentId"
         android:inputType="numberDecimal" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="99dp" />
+
     <Button
         android:id="@+id/registerstudent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:insetLeft="40dp"
-        android:insetTop="100dp"
-        android:insetRight="40dp"
-        android:text="@string/register" />
+        android:text="register" />
 
     <TextView
         android:id="@+id/textViewStudent"
         android:layout_width="match_parent"
         android:layout_height="82dp" />
+
+    <Button
+        android:id="@+id/backBtnStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="back" />
 
 </LinearLayout>

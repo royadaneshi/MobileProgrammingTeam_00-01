@@ -25,6 +25,7 @@ public class ProfessorFragment extends Fragment {
     private EditText universityName;
     private EditText password;
     private TextView textView;
+    private Button back;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class ProfessorFragment extends Fragment {
         universityName = view.findViewById(R.id.universityNameProfessor);
         password = view.findViewById(R.id.passwordProfessor);
         textView = view.findViewById(R.id.textViewProfessor);
+        back = view.findViewById(R.id.backBtnProfessor);
 
         registerProfessor.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
@@ -54,6 +56,14 @@ public class ProfessorFragment extends Fragment {
                     textView.setText("Fill all the fields");
 
                 }
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                startActivity(myIntent);
             }
         });
         return view;
