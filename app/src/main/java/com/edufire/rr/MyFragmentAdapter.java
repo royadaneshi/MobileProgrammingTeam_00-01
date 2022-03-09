@@ -15,9 +15,9 @@ public class MyFragmentAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (position == 1) {
-            return new SignInFragment();
+            return new StudentFragment();
         }
-        return new SignUpFragment();
+        return new ProfessorFragment();
     }
 
     @Override
