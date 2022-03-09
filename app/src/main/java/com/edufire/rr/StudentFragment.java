@@ -38,15 +38,18 @@ public class StudentFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                int numberOfStudentId = Integer.parseInt(studentId.getText().toString());
-                if (!User.isUserExist) {
-                    new Student(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), numberOfStudentId);
-                    Intent myIntent = new Intent(v.getContext(), MainActivity.class);
-                    startActivity(myIntent);
+                if (!username.getText().toString().equals("") && !password.getText().toString().equals("")  && !completeName.getText().toString().equals("") && !studentId.getText().toString().equals("")) {
+                    int numberOfStudentId = Integer.parseInt(studentId.getText().toString());
+                    if (!User.doesTheUserExist(username.getText().toString())) {
+                        new Student(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), numberOfStudentId);
+                        Intent myIntent = new Intent(v.getContext(), MainActivity.class);
+                        startActivity(myIntent);
+                    } else {
+                        textView.setText("User with this username already exists");
+                    }
                 } else {
-                    textView.setText("User with this username already exists");
+                    textView.setText("Fill all the fields");
                 }
-
             }
         });
         return view;

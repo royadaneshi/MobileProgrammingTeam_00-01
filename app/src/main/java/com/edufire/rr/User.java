@@ -8,21 +8,17 @@ public class User {
     private String completeName;
     private static HashMap<String, User> users;
     private boolean isStudent;
-    public static boolean isUserExist=false;
+
     static {
         users = new HashMap<>();
     }
-    public User(String username, String password,String completeName,boolean isStudent) {
-        if (users.containsKey(username)) {
-            isUserExist=true;
-        } else {
-            this.username = username;
-            this.password = password;
-            this.completeName= completeName;
-            this.isStudent=isStudent;
-            users.put(username, this);
-            isUserExist=false;
-        }
+
+    public User(String username, String password, String completeName, boolean isStudent) {
+        this.username = username;
+        this.password = password;
+        this.completeName = completeName;
+        this.isStudent = isStudent;
+        users.put(username, this);
     }
 
 
@@ -37,9 +33,11 @@ public class User {
     public String getCompleteName() {
         return completeName;
     }
-    public static boolean doesTheUserExist(String username){
+
+    public static boolean doesTheUserExist(String username) {
         return users.get(username) != null;
     }
+
     public static User getUser(String username) {
         return users.get(username);
     }

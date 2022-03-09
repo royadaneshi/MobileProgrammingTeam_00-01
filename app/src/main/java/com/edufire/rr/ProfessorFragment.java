@@ -42,12 +42,17 @@ public class ProfessorFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                if (!User.isUserExist) {
-                    new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
-                    Intent myIntent = new Intent(v.getContext(), MainActivity.class);
-                    startActivity(myIntent);
+                if (!username.getText().toString().equals("") && !password.getText().toString().equals("")  && !completeName.getText().toString().equals("") && !universityName.getText().toString().equals("")) {
+                    if (!User.doesTheUserExist(username.getText().toString())) {
+                        new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
+                        Intent myIntent = new Intent(v.getContext(), MainActivity.class);
+                        startActivity(myIntent);
+                    } else {
+                        textView.setText("User with this username already exists");
+                    }
                 } else {
-                    textView.setText("User with this username already exists");
+                    textView.setText("Fill all the fields");
+
                 }
             }
         });
