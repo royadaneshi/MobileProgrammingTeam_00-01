@@ -39,8 +39,8 @@ public class StudentFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 int numberOfStudentId = Integer.parseInt(studentId.getText().toString());
-                new Student(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), numberOfStudentId);
                 if (!User.isUserExist) {
+                    new Student(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), numberOfStudentId);
                     Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                     startActivity(myIntent);
                 } else {

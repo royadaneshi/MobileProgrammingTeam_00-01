@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_FirstFragment_to_mainActivity2"
             app:destination="@id/mainActivity2" />
+        <action
+            android:id="@+id/action_FirstFragment_to_professorPanelFragment"
+            app:destination="@id/professorPanelFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_studentPanelFragment"
+            app:destination="@id/studentPanelFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity2"
@@ -22,5 +28,15 @@
     <action
         android:id="@+id/action_mainActivity2_to_FirstFragment"
         app:destination="@id/FirstFragment" />
+    <fragment
+        android:id="@+id/professorPanelFragment"
+        android:name="com.edufire.rr.ProfessorPanelFragment"
+        android:label="fragment_professor_panel"
+        tools:layout="@layout/fragment_professor_panel" />
+    <fragment
+        android:id="@+id/studentPanelFragment"
+        android:name="com.edufire.rr.StudentPanelFragment"
+        android:label="fragment_student_panel"
+        tools:layout="@layout/fragment_student_panel" />
 
 </navigation>

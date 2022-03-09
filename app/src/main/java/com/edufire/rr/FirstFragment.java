@@ -1,5 +1,6 @@
 package com.edufire.rr;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,39 +18,44 @@ public class FirstFragment extends Fragment {
     private FragmentFirstBinding binding;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
-
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-            binding.register2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    NavHostFragment.findNavController(FirstFragment.this)
-                            .navigate(R.id.action_FirstFragment_to_mainActivity2);
-                }
-            });
+        //for don't have account
+        binding.register2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_mainActivity2);
+            }
+        });
 
         binding.buttonLogin1.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 if (User.doesTheUserExist(binding.loginUsername.getText().toString())) {
                     if (User.getUser(binding.loginUsername.getText().toString()).getPassword().equals(binding.loginPassword.getText().toString())) {
                         if (User.getUser(binding.loginUsername.getText().toString()).isStudent()) {
                             //login to student panel
+                            NavHostFragment.findNavController(FirstFragment.this)
+                                    .navigate(R.id.action_FirstFragment_to_studentPanelFragment);
                         } else {
                             //login to professor panel
+                            NavHostFragment.findNavController(FirstFragment.this)
+                                    .navigate(R.id.action_FirstFragment_to_professorPanelFragment);
                         }
 
+                    }else {
+                        binding.textViewFirstFragment.setText("Password is wrong");
+
                     }
+                }else {
+                    binding.textViewFirstFragment.setText("User with this username doesn't exist");
                 }
 
             }

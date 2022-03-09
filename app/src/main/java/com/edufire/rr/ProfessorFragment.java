@@ -42,8 +42,8 @@ public class ProfessorFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
                 if (!User.isUserExist) {
+                    new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
                     Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                     startActivity(myIntent);
                 } else {
