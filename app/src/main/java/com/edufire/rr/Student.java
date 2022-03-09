@@ -13,6 +13,7 @@ public class Student extends User{
         super(username, password, completeName,true);
         this.studentId=studentId;
         students.put(username,this);
+
     }
 
     public int getStudentId() {

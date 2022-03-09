@@ -1,5 +1,7 @@
 package com.edufire.rr;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,22 +12,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.edufire.rr.databinding.FragmentFirstBinding;
 
 public class ProfessorFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
 
     private Button registerProfessor;
     private EditText username;
     private EditText completeName;
     private EditText universityName;
     private EditText password;
+    private TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,40 +36,23 @@ public class ProfessorFragment extends Fragment {
         completeName = view.findViewById(R.id.completeNameProfessor);
         universityName = view.findViewById(R.id.universityNameProfessor);
         password = view.findViewById(R.id.passwordProfessor);
+        textView = view.findViewById(R.id.textViewProfessor);
 
         registerProfessor.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
             public void onClick(View v) {
                 new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
-                NavHostFragment.findNavController(ProfessorFragment.this)
-                        .navigate(R.id.action_mainActivity2_to_FirstFragment);
+                if (!User.isUserExist) {
+                    Intent myIntent = new Intent(v.getContext(), MainActivity.class);
+                    startActivity(myIntent);
+                } else {
+                    textView.setText("User with this username already exists");
+                }
             }
         });
         return view;
 
-    }
-
-
-    public ProfessorFragment() {
-        // Required empty public constructor
-    }
-
-
-    public static ProfessorFragment newInstance(String param1, String param2) {
-        ProfessorFragment fragment = new ProfessorFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
 

@@ -8,18 +8,20 @@ public class User {
     private String completeName;
     private static HashMap<String, User> users;
     private boolean isStudent;
+    public static boolean isUserExist=false;
     static {
         users = new HashMap<>();
     }
     public User(String username, String password,String completeName,boolean isStudent) {
         if (users.containsKey(username)) {
-            System.out.println("user with this username already exists");
+            isUserExist=true;
         } else {
             this.username = username;
             this.password = password;
             this.completeName= completeName;
             this.isStudent=isStudent;
             users.put(username, this);
+            isUserExist=false;
         }
     }
 
