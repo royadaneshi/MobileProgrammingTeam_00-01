@@ -1,4 +1,4 @@
-package com.edufire.rr;
+package com.edufire.rr.models;
 
 import java.util.HashMap;
 

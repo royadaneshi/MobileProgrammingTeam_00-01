@@ -32,11 +32,48 @@
         android:id="@+id/professorPanelFragment"
         android:name="com.edufire.rr.ProfessorPanelFragment"
         android:label="fragment_professor_panel"
-        tools:layout="@layout/fragment_professor_panel" />
+        tools:layout="@layout/fragment_professor_panel" >
+        <action
+            android:id="@+id/action_professorPanelFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
     <fragment
         android:id="@+id/studentPanelFragment"
         android:name="com.edufire.rr.StudentPanelFragment"
         android:label="fragment_student_panel"
-        tools:layout="@layout/fragment_student_panel" />
+        tools:layout="@layout/fragment_student_panel" >
+        <action
+            android:id="@+id/action_studentPanelFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentFragment"
+        android:name="com.edufire.rr.StudentFragment"
+        android:label="fragment_student"
+        tools:layout="@layout/fragment_student" >
+        <action
+            android:id="@+id/action_studentFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_studentFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/professorFragment"
+        android:name="com.edufire.rr.ProfessorFragment"
+        android:label="fragment_professor"
+        tools:layout="@layout/fragment_professor" >
+        <action
+            android:id="@+id/action_professorFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_professorFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.edufire.rr.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 
 </navigation>

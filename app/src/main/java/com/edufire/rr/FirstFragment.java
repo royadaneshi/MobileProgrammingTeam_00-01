@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.edufire.rr.databinding.FragmentFirstBinding;
+import com.edufire.rr.models.User;
 
 ///login page
 public class FirstFragment extends Fragment {

@@ -1,8 +1,8 @@
-package com.edufire.rr;
+package com.edufire.rr.models;
 
 import java.util.HashMap;
 
-public class Student extends User{
+public class Student extends User {
     private int studentId;
     private static HashMap<String, Student> students;
     static {

@@ -1,4 +1,4 @@
-package com.edufire.rr;
+package com.edufire.rr.models;
 
 import java.util.HashMap;
 
@@ -6,6 +6,8 @@ public class User {
     private String username;
     private String password;
     private String completeName;
+
+
     private static HashMap<String, User> users;
     private boolean isStudent;
 
@@ -21,6 +23,15 @@ public class User {
         users.put(username, this);
     }
 
+
+    public static void setUsers(HashMap<String,User> newUsers){
+        users=newUsers;
+    }
+
+
+    public static HashMap<String, User> getUsers() {
+        return users;
+    }
 
     public String getUsername() {
         return username;
