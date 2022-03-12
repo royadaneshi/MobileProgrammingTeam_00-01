@@ -50,7 +50,7 @@ public class FirstFragment extends Fragment {
                             NavHostFragment.findNavController(FirstFragment.this)
                                     .navigate(R.id.action_FirstFragment_to_professorPanelFragment);
                         }
-
+                        User.setThisUsernameActive(binding.loginUsername.getText().toString());
                     }else {
                         binding.textViewFirstFragment.setText("Password is wrong");
 
