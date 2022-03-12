@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.edufire.rr.models.Professor;
+import com.edufire.rr.models.User;
+
 public class ProfessorFragment extends Fragment {
 
 

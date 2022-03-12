@@ -1,7 +1,9 @@
 package com.edufire.rr;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,6 +11,9 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edufire.rr.models.Class;
+import com.edufire.rr.models.Professor;
+import com.edufire.rr.models.User;
 import com.google.android.material.snackbar.Snackbar;
 
 public class ProfessorCreateClassActivity extends AppCompatActivity {
@@ -24,11 +29,13 @@ public class ProfessorCreateClassActivity extends AppCompatActivity {
         className = findViewById(R.id.class_name);
         createBtn = findViewById(R.id.create_class_btn);
 
+        className.setText(User.getActiveUser().getUsername());
+
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, className.getEditableText(), Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                 new Class(className.getText().toString(),Professor.getProfessor(User.getActiveUser().getUsername()));
+                //todo back to last page
             }
         });
     }

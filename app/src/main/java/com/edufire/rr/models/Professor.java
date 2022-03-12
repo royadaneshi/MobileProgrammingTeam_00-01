@@ -1,10 +1,12 @@
 package com.edufire.rr.models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Professor extends User {
     private String universityName;
     private static HashMap<String, Professor> professors;
+    private static ArrayList<Class> classes;
 
     static {
         professors = new HashMap<>();
@@ -14,7 +16,7 @@ public class Professor extends User {
         super(username, password, completeName,false);
         this.universityName = universityName;
         professors.put(username, this);
-
+        classes = new ArrayList<>();
     }
 
     public String getUniversityName() {
@@ -23,5 +25,13 @@ public class Professor extends User {
 
     public static Professor getProfessor(String username) {
         return professors.get(username);
+    }
+
+    public static void addNewClass(Class newClass){
+        classes.add(newClass);
+    }
+
+    public static ArrayList<Class> getClasses() {
+        return classes;
     }
 }

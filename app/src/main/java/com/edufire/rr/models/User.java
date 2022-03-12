@@ -7,6 +7,8 @@ public class User {
     private String password;
     private String completeName;
 
+    private static User activeUser;
+
 
     private static HashMap<String, User> users;
     private boolean isStudent;
@@ -55,5 +57,13 @@ public class User {
 
     public boolean isStudent() {
         return isStudent;
+    }
+
+    public static User getActiveUser() {
+        return activeUser;
+    }
+
+    public static void setThisUsernameActive(String username){
+        activeUser = getUser(username);
     }
 }
