@@ -26,4 +26,12 @@
     <string name="completename">completeName</string>
     <string name="student_panel">Student Panel</string>
     <string name="professor_panel">Professor Panel</string>
+
+    // professor panel strings
+    <string name="prof_panel_create_class">Create Class</string>
+    <string name="prof_my_classes">My Classes</string>
+
+    // professor create class strings
+    <string name="prof_enter_name">Enter Your Class Name</string>
+    <string name="prof_create_class">Create</string>
 </resources>

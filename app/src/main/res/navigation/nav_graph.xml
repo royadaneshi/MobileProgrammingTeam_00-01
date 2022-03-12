@@ -32,11 +32,20 @@
         android:id="@+id/professorPanelFragment"
         android:name="com.edufire.rr.ProfessorPanelFragment"
         android:label="fragment_professor_panel"
-        tools:layout="@layout/fragment_professor_panel" />
+        tools:layout="@layout/fragment_professor_panel" >
+        <action
+            android:id="@+id/action_professorPanelFragment_to_professorCreateClassActivity"
+            app:destination="@id/professorCreateClassActivity" />
+    </fragment>
     <fragment
         android:id="@+id/studentPanelFragment"
         android:name="com.edufire.rr.StudentPanelFragment"
         android:label="fragment_student_panel"
         tools:layout="@layout/fragment_student_panel" />
+    <activity
+        android:id="@+id/professorCreateClassActivity"
+        android:name="com.edufire.rr.ProfessorCreateClassActivity"
+        android:label="ProfessorCreateClassActivity"
+        tools:layout="@layout/fragment_professor_create_class"/>
 
 </navigation>
