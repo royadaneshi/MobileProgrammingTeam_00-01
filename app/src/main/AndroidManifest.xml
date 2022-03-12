@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfessorCreateClassActivity" />
+        <activity android:name=".ProfessorMyClassListActivity" />
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@ public class Class {
     private final String name;
     private final Professor professor;
     private final ArrayList<Student> students;
-    private static final HashMap<String,Class> classes ;
+    private static HashMap<String,Class> classes ;
 
     static {
         classes = new HashMap<>();

@@ -31,7 +31,7 @@ public class Professor extends User {
         classes.add(newClass);
     }
 
-    public static ArrayList<Class> getClasses() {
+    public ArrayList<Class> getClasses() {
         return classes;
     }
 }
