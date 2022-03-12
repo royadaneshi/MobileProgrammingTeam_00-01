@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.edufire.rr.models.Student;
+import com.edufire.rr.models.User;
+
 
 public class StudentFragment extends Fragment {
     private Button registerStudent;
