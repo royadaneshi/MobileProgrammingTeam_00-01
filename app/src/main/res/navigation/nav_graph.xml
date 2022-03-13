@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_studentPanelFragment_to_studentMyClassesActivity"
             app:destination="@id/studentMyClassesActivity" />
+        <action
+            android:id="@+id/action_studentPanelFragment_to_studentJoinClassActivity"
+            app:destination="@id/studentJoinClassActivity" />
     </fragment>
     <activity
         android:id="@+id/professorCreateClassActivity"
@@ -64,5 +67,10 @@
         android:name="com.edufire.rr.StudentMyClassesActivity"
         tools:layout="@layout/fragment_student_my_classes"
         android:label="StudentMyClassesActivity" />
+    <activity
+        android:id="@+id/studentJoinClassActivity"
+        android:name="com.edufire.rr.StudentJoinClassActivity"
+        tools:layout="@layout/fragment_student_join_class"
+        android:label="StudentJoinClassActivity" />
 
 </navigation>

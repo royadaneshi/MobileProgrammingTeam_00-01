@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".ProfessorCreateClassActivity" />
         <activity android:name=".ProfessorMyClassListActivity" />
+        <activity android:name=".StudentJoinClassActivity" />
+        <activity android:name=".StudentMyClassesActivity" />
     </application>
 
 </manifest>

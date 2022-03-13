@@ -32,6 +32,13 @@ public class StudentPanelFragment extends Fragment {
                         .navigate(R.id.action_studentPanelFragment_to_studentMyClassesActivity);
             }
         });
+        joinNewClassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(StudentPanelFragment.this)
+                        .navigate(R.id.action_studentPanelFragment_to_studentJoinClassActivity);
+            }
+        });
 
         return view;
     }
