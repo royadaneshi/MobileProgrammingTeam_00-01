@@ -25,11 +25,12 @@ public class Student extends User {
         return students.get(username);
     }
 
-    public static ArrayList<Class> getClasses() {
+    public ArrayList<Class> getClasses() {
         return classes;
     }
 
     public static void joinClass(Class classToJoin){
         classes.add(classToJoin);
     }
+
 }

@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Class {
     private final String name;
-    private final Professor professor;
+    private  Professor professor;
     private final ArrayList<Student> students;
     private static HashMap<String,Class> classes ;
 
@@ -29,4 +29,7 @@ public class Class {
         return classes;
     }
 
+    public Professor getProfessor() {
+        return professor;
+    }
 }
