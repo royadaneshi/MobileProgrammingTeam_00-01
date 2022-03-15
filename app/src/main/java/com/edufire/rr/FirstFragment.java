@@ -11,7 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.edufire.rr.databinding.FragmentFirstBinding;
+import com.edufire.rr.models.Professor;
+import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
+
+import java.util.HashMap;
 
 ///login page
 public class FirstFragment extends Fragment {
@@ -21,8 +25,13 @@ public class FirstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
+        //load data from dataBase to users, professors, students, classes( classes not done yet)
+        loadUsers();
+        loadStudents();
+        loadProfessors();
         return binding.getRoot();
     }
+
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -50,12 +59,12 @@ public class FirstFragment extends Fragment {
                             NavHostFragment.findNavController(FirstFragment.this)
                                     .navigate(R.id.action_FirstFragment_to_professorPanelFragment);
                         }
-
-                    }else {
+                        User.setThisUsernameActive(binding.loginUsername.getText().toString());
+                    } else {
                         binding.textViewFirstFragment.setText("Password is wrong");
 
                     }
-                }else {
+                } else {
                     binding.textViewFirstFragment.setText("User with this username doesn't exist");
                 }
 
@@ -69,5 +78,28 @@ public class FirstFragment extends Fragment {
         binding = null;
     }
 
+    private void loadUsers() {
+        if (DataBase.getPrefs("user", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("user", getActivity(), "ProfessorsData").equals("notfound")) {
+            DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+        } else {
+            User.setUsers(DataBase.convertStringToUserHashMap(DataBase.getPrefs("user", getActivity(), "ProfessorsData")));
+        }
+    }
+
+    private void loadStudents() {
+        if (DataBase.getPrefs("student", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("student", getActivity(), "ProfessorsData").equals("notfound")) {
+            DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
+        } else {
+            Student.setStudents(DataBase.convertStringToStudentHashMap(DataBase.getPrefs("student", getActivity(), "ProfessorsData")));
+        }
+    }
+
+    private void loadProfessors() {
+        if (DataBase.getPrefs("professor", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("professor", getActivity(), "ProfessorsData").equals("notfound")) {
+            DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+        } else {
+            Professor.setProfessors(DataBase.convertStringToProfessorHashMap(DataBase.getPrefs("professor", getActivity(), "ProfessorsData")));
+        }
+    }
 
 }

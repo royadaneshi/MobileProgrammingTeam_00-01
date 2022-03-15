@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,13 +17,6 @@ import android.widget.TextView;
 
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.User;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class ProfessorFragment extends Fragment {
 
@@ -52,49 +43,16 @@ public class ProfessorFragment extends Fragment {
         back = view.findViewById(R.id.backBtnProfessor);
 
         registerProfessor.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 if (!username.getText().toString().equals("") && !password.getText().toString().equals("") && !completeName.getText().toString().equals("") && !universityName.getText().toString().equals("")) {
                     if (!User.doesTheUserExist(username.getText().toString())) {
-                        ////
-                        //first get and
-//                          HashMap<String, User> outputMap = new HashMap<>();
-//                          SharedPreferences sharedPrefGet = getActivity().getPreferences(Context.MODE_PRIVATE);
-//                          try {
-//                              if (sharedPrefGet != null) {
-//
-//                                  String jsonString = sharedPrefGet.getString("Users", (new JSONObject()).toString());
-//                                  if (jsonString != null) {
-//                                      JSONObject jsonObject = new JSONObject(jsonString);
-//                                      Iterator<String> keysItr = jsonObject.keys();
-//                                      while (keysItr.hasNext()) {
-//                                          String key = keysItr.next();
-//                                          outputMap.put(key, (User) jsonObject.get(key));
-//                                      }
-//                                  }
-//                              }
-//                          } catch (Exception e) {
-//                              e.printStackTrace();
-//                          }
-//                          User.setUsers(outputMap);
-///////////////////////////////////////////////////
                         new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
-                         //now save
-//                         SharedPreferences sharedPrefPut = getActivity().getPreferences(Context.MODE_PRIVATE);
-//                         if (sharedPrefPut != null) {
-//                             GsonBuilder gsonMapBuilder = new GsonBuilder();
-//                             Gson gsonObject = gsonMapBuilder.create();
-//                             String JSONObject = gsonObject.toJson(User.getUsers());
-//                             String jsonString = JSONObject.toString();
-//
-//                             SharedPreferences.Editor editor = sharedPrefPut.edit();
-//                             editor.remove("Users").apply();
-//                             editor.putString("Users", jsonString);
-//                             editor.apply();
-//                         }
-//                        /////////////////////
+                        //save to sharedPreference users and professors
+                        DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                        DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+                        //
                         Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                         startActivity(myIntent);
                     } else {
@@ -117,7 +75,6 @@ public class ProfessorFragment extends Fragment {
         return view;
 
     }
-
 
 
 }
