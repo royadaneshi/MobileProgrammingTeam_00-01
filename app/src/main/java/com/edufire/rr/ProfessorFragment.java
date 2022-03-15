@@ -1,7 +1,9 @@
 package com.edufire.rr;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -17,6 +19,13 @@ import android.widget.TextView;
 
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.User;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class ProfessorFragment extends Fragment {
 
@@ -47,50 +56,44 @@ public class ProfessorFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                ///read from shared
-//                SharedPreferences sharedPrefGet = getActivity().getPreferences(Context.MODE_PRIVATE);
-//                int defaultValue = getResources().getInteger(0);
-//                int highScore = sharedPrefGet.getInt("Users", defaultValue);
-                ///
                 if (!username.getText().toString().equals("") && !password.getText().toString().equals("") && !completeName.getText().toString().equals("") && !universityName.getText().toString().equals("")) {
                     if (!User.doesTheUserExist(username.getText().toString())) {
                         ////
                         //first get and
-//                        HashMap<String, User> outputMap = new HashMap<>();
-//                        SharedPreferences sharedPrefGet = getActivity().getPreferences(Context.MODE_PRIVATE);
-//                        try {
-//                            if (sharedPrefGet != null) {
+//                          HashMap<String, User> outputMap = new HashMap<>();
+//                          SharedPreferences sharedPrefGet = getActivity().getPreferences(Context.MODE_PRIVATE);
+//                          try {
+//                              if (sharedPrefGet != null) {
 //
-//                                String jsonString = sharedPrefGet.getString("Users", (new JSONObject()).toString());
-//                                System.out.println(jsonString+"   nnnnnnnnnnnnnnnnnnnnnnnnn");
-//                                if (jsonString != null) {
-//                                    JSONObject jsonObject = new JSONObject(jsonString);
-//                                    Iterator<String> keysItr = jsonObject.keys();
-//                                    while (keysItr.hasNext()) {
-//                                        String key = keysItr.next();
-//                                        outputMap.put(key, (User) jsonObject.get(key));
-//                                    }
-//                                }
-//                            }
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                        User.setUsers(outputMap);
+//                                  String jsonString = sharedPrefGet.getString("Users", (new JSONObject()).toString());
+//                                  if (jsonString != null) {
+//                                      JSONObject jsonObject = new JSONObject(jsonString);
+//                                      Iterator<String> keysItr = jsonObject.keys();
+//                                      while (keysItr.hasNext()) {
+//                                          String key = keysItr.next();
+//                                          outputMap.put(key, (User) jsonObject.get(key));
+//                                      }
+//                                  }
+//                              }
+//                          } catch (Exception e) {
+//                              e.printStackTrace();
+//                          }
+//                          User.setUsers(outputMap);
 ///////////////////////////////////////////////////
                         new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
-//                        //now save
-//                        SharedPreferences sharedPrefPut = getActivity().getPreferences(Context.MODE_PRIVATE);
-//                        if (sharedPrefPut != null) {
-//                            GsonBuilder gsonMapBuilder = new GsonBuilder();
-//                            Gson gsonObject = gsonMapBuilder.create();
-//                            String JSONObject = gsonObject.toJson(User.getUsers());
-//                            String jsonString = JSONObject.toString();
+                         //now save
+//                         SharedPreferences sharedPrefPut = getActivity().getPreferences(Context.MODE_PRIVATE);
+//                         if (sharedPrefPut != null) {
+//                             GsonBuilder gsonMapBuilder = new GsonBuilder();
+//                             Gson gsonObject = gsonMapBuilder.create();
+//                             String JSONObject = gsonObject.toJson(User.getUsers());
+//                             String jsonString = JSONObject.toString();
 //
-//                            SharedPreferences.Editor editor = sharedPrefPut.edit();
-//                            editor.remove("Users").apply();
-//                            editor.putString("Users", jsonString);
-//                            editor.apply();
-//                        }
+//                             SharedPreferences.Editor editor = sharedPrefPut.edit();
+//                             editor.remove("Users").apply();
+//                             editor.putString("Users", jsonString);
+//                             editor.apply();
+//                         }
 //                        /////////////////////
                         Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                         startActivity(myIntent);
@@ -115,18 +118,6 @@ public class ProfessorFragment extends Fragment {
 
     }
 
-    //    private void saveMap(Map<String, Object> inputMap) {
-//        SharedPreferences pSharedPref = getApplicationContext().getSharedPreferences("MyVariables",
-//                Context.MODE_PRIVATE);
-//        if (pSharedPref != null) {
-//            JSONObject jsonObject = new JSONObject(inputMap);
-//            String jsonString = jsonObject.toString();
-//            SharedPreferences.Editor editor = pSharedPref.edit();
-//            editor.remove(mapKey).apply();
-//            editor.putString(mapKey, jsonString);
-//            editor.commit();
-//        }
-//    }
 
 
 }
