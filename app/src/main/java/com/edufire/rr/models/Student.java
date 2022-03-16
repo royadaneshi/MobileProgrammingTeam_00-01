@@ -5,11 +5,8 @@ import java.util.HashMap;
 
 public class Student extends User {
     private int studentId;
-
-
     private static HashMap<String, Student> students=new HashMap<>();;
-
-    private  ArrayList<Course> courses = new ArrayList<>();
+    private  ArrayList<String> courses = new ArrayList<>();//save course names instead of object(course name is unique) and we can get Course by it's name
 
     public Student(String username, String password, String completeName, int studentId) {
         super(username, password, completeName, true);
@@ -26,13 +23,13 @@ public class Student extends User {
         return students.get(username);
     }
 
-    public ArrayList<Course> getClasses() {
+    public ArrayList<String> getClasses() {
         return courses;
     }
 
     public void joinClass(Course courseToJoin) {
-        courses.add(courseToJoin);
-    }//////
+        courses.add(courseToJoin.getName());
+    }//////I have changed
 
     public static HashMap<String, Student> getAllStudents() {
         return students;
@@ -42,8 +39,11 @@ public class Student extends User {
         Student.students = students;
     }
 
-    public ArrayList<Course> getAvailableCourses(){///
-        ArrayList<Course> studentsCourses = new ArrayList<>(courses);
+    public ArrayList<Course> getAvailableCourses(){///I have changed
+        ArrayList<Course> studentsCourses = new ArrayList<>();
+        for (int i = 0; i < courses.size(); i++) {
+            studentsCourses.add(Course.getCourseByName(courses.get(i)));
+        }
         ArrayList<Course> allCourses = new ArrayList<>(Course.getCoursesArrayList());
         ArrayList<Course> union = new ArrayList<>(studentsCourses);
         union.addAll(allCourses);

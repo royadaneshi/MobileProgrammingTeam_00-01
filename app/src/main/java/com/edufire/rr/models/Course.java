@@ -17,9 +17,8 @@ public class Course {
         if(classes==null){
             classes=new HashMap<>();
         }
+        professor.addNewClass(name);///here should call on object(I fixed it)
         classes.put(name,this);
-
-        Professor.addNewClass(this);
     }
 
     public ArrayList<Student> getStudents() {
@@ -40,6 +39,9 @@ public class Course {
 
     public static ArrayList<Course> getCoursesArrayList(){
         return new ArrayList<>(classes.values());
+    }
+    public static Course getCourseByName(String name){
+        return classes.get(name);
     }
     public static void setClasses(HashMap<String, Course> classes) {
         Course.classes = classes;

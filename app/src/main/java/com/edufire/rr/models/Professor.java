@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Professor extends User {
     private String universityName;
     private static HashMap<String, Professor> professors = new HashMap<>();
-    private static ArrayList<Course> courses;
+    private  ArrayList<String> courses;//save course names instead of object(course name is unique) and we can get Course by it's name
 
 
     public Professor(String username, String password, String completeName, String universityName) {
@@ -24,7 +24,7 @@ public class Professor extends User {
         return professors.get(username);
     }
 
-    public static void addNewClass(Course newCourse) {////
+    public void addNewClass(String newCourse) {//// should not be static(I have changed)
         if (courses == null) {
             courses = new ArrayList<>();
         } else {
@@ -33,7 +33,7 @@ public class Professor extends User {
 
     }
 
-    public ArrayList<Course> getClasses() {
+    public ArrayList<String> getClasses() {
         return courses;
     }
 
