@@ -1,7 +1,9 @@
 package com.edufire.rr;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -44,9 +46,13 @@ public class ProfessorFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                if (!username.getText().toString().equals("") && !password.getText().toString().equals("")  && !completeName.getText().toString().equals("") && !universityName.getText().toString().equals("")) {
+                if (!username.getText().toString().equals("") && !password.getText().toString().equals("") && !completeName.getText().toString().equals("") && !universityName.getText().toString().equals("")) {
                     if (!User.doesTheUserExist(username.getText().toString())) {
                         new Professor(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), universityName.getText().toString());
+                        //save to sharedPreference users and professors
+                        DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                        DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+                        //
                         Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                         startActivity(myIntent);
                     } else {

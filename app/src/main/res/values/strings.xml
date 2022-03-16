@@ -38,5 +38,7 @@
     // professor create class strings
     <string name="prof_enter_name">Enter Your Class Name</string>
     <string name="prof_create_class">Create</string>
+    <string name="back">back</string>
+    <string name="my_classe">My Classe</string>
 
 </resources>

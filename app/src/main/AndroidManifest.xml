@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rr" >
         <activity
+            android:name=".ProfessorMyClassListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:label="@string/title_activity_main2"
@@ -25,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfessorCreateClassActivity" />
-        <activity android:name=".ProfessorMyClassListActivity" />
         <activity android:name=".StudentJoinClassActivity" />
         <activity android:name=".StudentMyClassesActivity" />
     </application>

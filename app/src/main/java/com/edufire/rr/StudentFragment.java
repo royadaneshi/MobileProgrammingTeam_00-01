@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 
@@ -48,6 +49,10 @@ public class StudentFragment extends Fragment {
                     int numberOfStudentId = Integer.parseInt(studentId.getText().toString());
                     if (!User.doesTheUserExist(username.getText().toString())) {
                         new Student(username.getText().toString(), password.getText().toString(), completeName.getText().toString(), numberOfStudentId);
+                        //save to sharedPreference users and students
+                        DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                        DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
+                        //
                         Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                         startActivity(myIntent);
                     } else {

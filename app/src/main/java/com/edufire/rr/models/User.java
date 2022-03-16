@@ -1,5 +1,7 @@
 package com.edufire.rr.models;
 
+import com.edufire.rr.DataBase;
+
 import java.util.HashMap;
 
 public class User {
@@ -8,14 +10,9 @@ public class User {
     private String completeName;
 
     private static User activeUser;
-
-
-    private static HashMap<String, User> users;
+    private static HashMap<String, User> users=new HashMap<>();
     private boolean isStudent;
 
-    static {
-        users = new HashMap<>();
-    }
 
     public User(String username, String password, String completeName, boolean isStudent) {
         this.username = username;
@@ -48,6 +45,9 @@ public class User {
     }
 
     public static boolean doesTheUserExist(String username) {
+        if(users==null){
+            users=new HashMap<>();
+        }
         return users.get(username) != null;
     }
 
