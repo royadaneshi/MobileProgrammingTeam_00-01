@@ -26,7 +26,7 @@ public class FirstFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
-        //load data from dataBase to users, professors, students, classes( classes not done yet)
+        //load data from dataBase to users, professors, students, classes
         loadUsers();
         loadStudents();
         loadProfessors();

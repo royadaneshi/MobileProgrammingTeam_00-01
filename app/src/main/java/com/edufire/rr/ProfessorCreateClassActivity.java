@@ -36,14 +36,9 @@ public class ProfessorCreateClassActivity extends AppCompatActivity {
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 new Course(className.getText().toString(), Professor.getProfessor(User.getActiveUser().getUsername()));
                 //save courses to sharedPreference
                 DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), ProfessorCreateClassActivity.this, "ProfessorsData");
-
-                //test
-                String vv=DataBase.getPrefs("course", ProfessorCreateClassActivity.this, "ProfessorsData");
-                System.out.println(vv+"//////////////////////////////////////////////////////////////////////////////");
 
             }
         });
