@@ -7,7 +7,7 @@ public class Professor extends User {
     private String universityName;
 
 
-    private static HashMap<String, Professor> professors= new HashMap<>();;
+    private static HashMap<String, Professor> professors= new HashMap<>();
     private static ArrayList<Course> courses;
 
 
@@ -27,6 +27,9 @@ public class Professor extends User {
     }
 
     public static void addNewClass(Course newCourse) {
+        if (courses == null){
+            courses = new ArrayList<>();
+        }
         courses.add(newCourse);
     }
 

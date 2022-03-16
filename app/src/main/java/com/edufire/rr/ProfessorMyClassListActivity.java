@@ -25,6 +25,7 @@ public class ProfessorMyClassListActivity  extends Fragment {
     Professor professor = Professor.getProfessor(User.getActiveUser().getUsername());
 
     public void createFakeData(){
+        if (courses == null) {courses = new ArrayList<>();}
         for (int i = 0; i <5 ; i++) {
             courses.add(new Course(Integer.toString(i),professor));
         }

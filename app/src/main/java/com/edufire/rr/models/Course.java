@@ -7,11 +7,8 @@ public class Course {
     private final String name;
     private  Professor professor;
     private final ArrayList<Student> students;
-    private static HashMap<String, Course> classes ;
+    private static HashMap<String, Course> classes = new HashMap<>() ;
 
-    static {
-        classes = new HashMap<>();
-    }
 
     public Course(String name, Professor professor) {
         this.name = name;

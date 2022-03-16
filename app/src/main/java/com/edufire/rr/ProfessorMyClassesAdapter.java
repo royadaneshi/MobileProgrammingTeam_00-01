@@ -1,5 +1,6 @@
 package com.edufire.rr;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +24,8 @@ public class ProfessorMyClassesAdapter extends RecyclerView.Adapter<ProfessorMyC
 
         public ViewHolder(View view){
             super(view);
-            className = (TextView) view.findViewById(R.id.prof_class_list_class_name);
-            button  = (Button) view.findViewById(R.id.prof_goto_class_btn);
+            className = view.findViewById(R.id.prof_class_list_class_name);
+            button  =  view.findViewById(R.id.prof_goto_class_btn);
         }
 
         public TextView getClassName() {
@@ -32,8 +33,8 @@ public class ProfessorMyClassesAdapter extends RecyclerView.Adapter<ProfessorMyC
         }
     }
 
-    public ProfessorMyClassesAdapter(ArrayList<Course> cours){
-        courseList = cours;
+    public ProfessorMyClassesAdapter(ArrayList<Course> courses){
+        courseList = courses;
     }
 
 
@@ -48,11 +49,12 @@ public class ProfessorMyClassesAdapter extends RecyclerView.Adapter<ProfessorMyC
 
     @Override
     public void onBindViewHolder(@NonNull ProfessorMyClassesAdapter.ViewHolder holder, int position) {
+        Log.d(String.valueOf(position), "onBindViewHolder: ");
         holder.className.setText(courseList.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return 100;
+        return courseList.size();
     }
 }
