@@ -49,7 +49,6 @@ public class ProfessorMyClassesAdapter extends RecyclerView.Adapter<ProfessorMyC
 
     @Override
     public void onBindViewHolder(@NonNull ProfessorMyClassesAdapter.ViewHolder holder, int position) {
-        Log.d(String.valueOf(position), "onBindViewHolder: ");
         holder.className.setText(courseList.get(position).getName());
     }
 

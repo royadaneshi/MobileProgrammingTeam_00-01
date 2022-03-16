@@ -28,8 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfessorCreateClassActivity" />
-        <activity android:name=".StudentJoinClassActivity" />
-        <activity android:name=".StudentMyClassesActivity" />
     </application>
 
 </manifest>

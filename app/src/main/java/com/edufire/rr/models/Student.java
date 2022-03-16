@@ -9,12 +9,12 @@ public class Student extends User {
 
     private static HashMap<String, Student> students=new HashMap<>();;
 
-    private static ArrayList<Course> cours;
+    private static ArrayList<Course> courses = new ArrayList<>();
 
     public Student(String username, String password, String completeName, int studentId) {
         super(username, password, completeName, true);
         this.studentId = studentId;
-        cours = new ArrayList<>();
+        courses = new ArrayList<>();
         students.put(username, this);
     }
 
@@ -27,11 +27,11 @@ public class Student extends User {
     }
 
     public ArrayList<Course> getClasses() {
-        return cours;
+        return courses;
     }
 
     public static void joinClass(Course courseToJoin) {
-        cours.add(courseToJoin);
+        courses.add(courseToJoin);
     }
 
     public static HashMap<String, Student> getAllStudents() {
@@ -40,6 +40,17 @@ public class Student extends User {
 
     public static void setStudents(HashMap<String, Student> students) {
         Student.students = students;
+    }
+
+    public static ArrayList<Course> getAvailableCourses(){
+        ArrayList<Course> studentsCourses = new ArrayList<>(courses);
+        ArrayList<Course> allCourses = new ArrayList<>(Course.getCoursesArrayList());
+        ArrayList<Course> union = new ArrayList<>(studentsCourses);
+        union.addAll(allCourses);
+        ArrayList<Course> interSection = new ArrayList<>(allCourses);
+        ArrayList<Course> symetricDiffrence = new ArrayList<>(union);
+        symetricDiffrence.removeAll(interSection);
+        return symetricDiffrence;
     }
 
 }

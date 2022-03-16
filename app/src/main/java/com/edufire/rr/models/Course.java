@@ -33,4 +33,8 @@ public class Course {
     public String getName() {
         return name;
     }
+
+    public static ArrayList<Course> getCoursesArrayList(){
+        return new ArrayList<>(classes.values());
+    }
 }
