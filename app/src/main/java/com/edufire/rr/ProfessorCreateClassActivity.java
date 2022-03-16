@@ -33,7 +33,6 @@ public class ProfessorCreateClassActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                  new Course(className.getText().toString(),Professor.getProfessor(User.getActiveUser().getUsername()));
-
                  // back to last page
                 Intent myIntent = new Intent(view.getContext(), ProfessorPanelFragment.class);
                 startActivity(myIntent);
