@@ -1,6 +1,5 @@
 package com.edufire.rr;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,45 +9,50 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.edufire.rr.models.Class;
+import com.edufire.rr.models.Course;
 
 import java.util.ArrayList;
 
 public class ProfessorMyClassesAdapter extends RecyclerView.Adapter<ProfessorMyClassesAdapter.ViewHolder> {
 
-    Context context;
-    ArrayList<Class> classes;
+    ArrayList<Course> courseList;
 
-    public ProfessorMyClassesAdapter(Context context, ArrayList<Class> classArrayList) {
-        this.context = context;
-        classes = classArrayList;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private final TextView className;
+        private final Button button;
+
+        public ViewHolder(View view){
+            super(view);
+            className = (TextView) view.findViewById(R.id.prof_class_list_class_name);
+            button  = (Button) view.findViewById(R.id.prof_goto_class_btn);
+        }
+
+        public TextView getClassName() {
+            return className;
+        }
     }
+
+    public ProfessorMyClassesAdapter(ArrayList<Course> cours){
+        courseList = cours;
+    }
+
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.class_row,parent,false);
+    public ProfessorMyClassesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.class_row,parent,false);
+
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.classNameTextView.setText(classes.get(position).getClass().getName());
+    public void onBindViewHolder(@NonNull ProfessorMyClassesAdapter.ViewHolder holder, int position) {
+        holder.className.setText(courseList.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return classes.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView classNameTextView;
-        Button gotoClassBtn;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            classNameTextView = itemView.findViewById(R.id.prof_class_list_class_name);
-            gotoClassBtn = itemView.findViewById(R.id.prof_goto_class_btn);
-        }
+        return 100;
     }
 }

@@ -10,18 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.edufire.rr.models.Class;
+import com.edufire.rr.models.Course;
 
 import java.util.ArrayList;
 
 public class StudentJoinClassAdapter extends RecyclerView.Adapter<StudentJoinClassAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<Class> classes;
+    ArrayList<Course> cours;
 
-    public StudentJoinClassAdapter(Context context, ArrayList<Class> classArrayList) {
+    public StudentJoinClassAdapter(Context context, ArrayList<Course> courseArrayList) {
         this.context = context;
-        classes = classArrayList;
+        cours = courseArrayList;
     }
 
     @NonNull
@@ -34,13 +34,13 @@ public class StudentJoinClassAdapter extends RecyclerView.Adapter<StudentJoinCla
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.className.setText(classes.get(position).getClass().getName());
-        holder.profName.setText(classes.get(position).getProfessor().getUsername());
+        holder.className.setText(cours.get(position).getClass().getName());
+        holder.profName.setText(cours.get(position).getProfessor().getUsername());
     }
 
     @Override
     public int getItemCount() {
-        return classes.size();
+        return cours.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

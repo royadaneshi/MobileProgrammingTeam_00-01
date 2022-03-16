@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.edufire.rr.models.Class;
+import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class StudentJoinClassActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<Class> classes;
+    ArrayList<Course> cours;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -26,9 +26,9 @@ public class StudentJoinClassActivity extends AppCompatActivity {
 
         recyclerView.findViewById(R.id.student_join_class_recycler_view);
         //todo get classes that student is not registered in
-        classes = Student.getStudent(User.getActiveUser().getUsername()).getClasses() ;
+        cours = Student.getStudent(User.getActiveUser().getUsername()).getClasses() ;
 
-        StudentJoinClassAdapter studentJoinClassAdapter = new StudentJoinClassAdapter(this,classes);
+        StudentJoinClassAdapter studentJoinClassAdapter = new StudentJoinClassAdapter(this, cours);
         recyclerView.setAdapter(studentJoinClassAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

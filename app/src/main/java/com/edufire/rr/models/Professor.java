@@ -8,13 +8,13 @@ public class Professor extends User {
 
 
     private static HashMap<String, Professor> professors= new HashMap<>();;
-    private static ArrayList<Class> classes;
+    private static ArrayList<Course> courses;
 
 
     public Professor(String username, String password, String completeName, String universityName) {
         super(username, password, completeName, false);
         this.universityName = universityName;
-        classes = new ArrayList<>();
+        courses = new ArrayList<Course>();
         professors.put(username, this);
     }
 
@@ -26,12 +26,12 @@ public class Professor extends User {
         return professors.get(username);
     }
 
-    public static void addNewClass(Class newClass) {
-        classes.add(newClass);
+    public static void addNewClass(Course newCourse) {
+        courses.add(newCourse);
     }
 
-    public ArrayList<Class> getClasses() {
-        return classes;
+    public ArrayList<Course> getClasses() {
+        return courses;
     }
 
     public static HashMap<String, Professor> getAllProfessors() {

@@ -10,18 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.edufire.rr.models.Class;
+import com.edufire.rr.models.Course;
 
 import java.util.ArrayList;
 
 public class StudentMyClassesAdapter extends RecyclerView.Adapter<StudentMyClassesAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<Class> classes;
+    ArrayList<Course> cours;
 
-    public StudentMyClassesAdapter(Context context, ArrayList<Class> classArrayList) {
+    public StudentMyClassesAdapter(Context context, ArrayList<Course> courseArrayList) {
         this.context = context;
-        classes = classes;
+        cours = cours;
     }
 
     @NonNull
@@ -34,12 +34,12 @@ public class StudentMyClassesAdapter extends RecyclerView.Adapter<StudentMyClass
 
     @Override
     public void onBindViewHolder(@NonNull StudentMyClassesAdapter.ViewHolder holder, int position) {
-        holder.className.setText(classes.get(position).getClass().getName());
-        holder.profName.setText(classes.get(position).getProfessor().getUsername());
+        holder.className.setText(cours.get(position).getClass().getName());
+        holder.profName.setText(cours.get(position).getProfessor().getUsername());
     }
 
     @Override
-    public int getItemCount() { return classes.size();}
+    public int getItemCount() { return cours.size();}
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView className,profName;
