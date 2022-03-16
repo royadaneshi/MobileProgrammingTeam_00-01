@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.edufire.rr.databinding.FragmentFirstBinding;
+import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
@@ -29,6 +30,7 @@ public class FirstFragment extends Fragment {
         loadUsers();
         loadStudents();
         loadProfessors();
+        loadCourses();
         return binding.getRoot();
     }
 
@@ -83,6 +85,7 @@ public class FirstFragment extends Fragment {
             DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
         } else {
             User.setUsers(DataBase.convertStringToUserHashMap(DataBase.getPrefs("user", getActivity(), "ProfessorsData")));
+
         }
     }
 
@@ -91,6 +94,7 @@ public class FirstFragment extends Fragment {
             DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
         } else {
             Student.setStudents(DataBase.convertStringToStudentHashMap(DataBase.getPrefs("student", getActivity(), "ProfessorsData")));
+
         }
     }
 
@@ -99,6 +103,13 @@ public class FirstFragment extends Fragment {
             DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
         } else {
             Professor.setProfessors(DataBase.convertStringToProfessorHashMap(DataBase.getPrefs("professor", getActivity(), "ProfessorsData")));
+        }
+    }
+    private void loadCourses() {
+        if (DataBase.getPrefs("course", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("course", getActivity(), "ProfessorsData").equals("notfound")) {
+            DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(), "ProfessorsData");
+        } else {
+            Course.setClasses(DataBase.convertStringToCourseHashMap(DataBase.getPrefs("course", getActivity(), "ProfessorsData")));
         }
     }
 

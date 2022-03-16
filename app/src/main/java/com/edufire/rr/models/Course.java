@@ -14,7 +14,11 @@ public class Course {
         this.name = name;
         this.professor = professor;
         students = new ArrayList<>();
+        if(classes==null){
+            classes=new HashMap<>();
+        }
         classes.put(name,this);
+
         Professor.addNewClass(this);
     }
 
@@ -22,7 +26,7 @@ public class Course {
         return students;
     }
 
-    public HashMap<String, Course> getClasses() {
+    public static HashMap<String, Course> getClasses() {
         return classes;
     }
 
@@ -37,4 +41,8 @@ public class Course {
     public static ArrayList<Course> getCoursesArrayList(){
         return new ArrayList<>(classes.values());
     }
+    public static void setClasses(HashMap<String, Course> classes) {
+        Course.classes = classes;
+    }
+
 }

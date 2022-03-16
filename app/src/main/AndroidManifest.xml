@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.edufire.rr" >
+    package="com.edufire.rr">
 
     <application
         android:allowBackup="true"
@@ -8,26 +8,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Rr" >
-<!--        <activity-->
-<!--            android:name=".ProfessorMyClassListActivity"-->
-<!--            android:exported="false" />-->
+        android:theme="@style/Theme.Rr">
+        <!--        <activity-->
+        <!--            android:name=".ProfessorMyClassListActivity"-->
+        <!--            android:exported="false" />-->
         <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Rr.NoActionBar" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Rr.NoActionBar" >
+            android:theme="@style/Theme.Rr.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfessorCreateClassActivity" />
+        <!--        <activity android:name=".ProfessorCreateClassActivity" />-->
+        <activity
+            android:name=".ProfessorCreateClassActivity"
+            android:parentActivityName=".ProfessorPanelFragment" />
     </application>
 
 </manifest>

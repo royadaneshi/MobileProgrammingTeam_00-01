@@ -28,7 +28,7 @@
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_student.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_student_join_class.xml" value="0.18177083333333333" />
+        <entry key="app/src/main/res/layout/fragment_student_join_class.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_student_my_classes.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_student_panel.xml" value="0.5" />
         <entry key="app/src/main/res/layout/student_class_row.xml" value="0.18177083333333333" />

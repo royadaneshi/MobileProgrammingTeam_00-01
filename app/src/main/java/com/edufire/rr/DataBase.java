@@ -3,6 +3,7 @@ package com.edufire.rr;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
@@ -28,6 +29,12 @@ public class DataBase {
     }
 
     public static String convertProfessorHashMapToString(HashMap<String, Professor> hashMap) {
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        String jsonString = gson.toJson(hashMap);
+        return jsonString;
+    }
+
+    public static String convertCourseHashMapToString(HashMap<String, Course> hashMap) {
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String jsonString = gson.toJson(hashMap);
         return jsonString;
@@ -67,6 +74,18 @@ public class DataBase {
                     new TypeToken<HashMap<String, Professor>>() {
                     }.getType());
             return professorInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static HashMap<String, Course> convertStringToCourseHashMap(String jsonString) {
+        try {
+            HashMap<String, Course> courseInfo;
+            courseInfo = new Gson().fromJson(jsonString,
+                    new TypeToken<HashMap<String, Course>>() {
+                    }.getType());
+            return courseInfo;
         } catch (Exception e) {
             e.printStackTrace();
         }

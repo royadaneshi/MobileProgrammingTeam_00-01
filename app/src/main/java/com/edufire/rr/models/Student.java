@@ -9,7 +9,7 @@ public class Student extends User {
 
     private static HashMap<String, Student> students=new HashMap<>();;
 
-    private static ArrayList<Course> courses = new ArrayList<>();
+    private  ArrayList<Course> courses = new ArrayList<>();
 
     public Student(String username, String password, String completeName, int studentId) {
         super(username, password, completeName, true);
@@ -30,9 +30,9 @@ public class Student extends User {
         return courses;
     }
 
-    public static void joinClass(Course courseToJoin) {
+    public void joinClass(Course courseToJoin) {
         courses.add(courseToJoin);
-    }
+    }//////
 
     public static HashMap<String, Student> getAllStudents() {
         return students;
@@ -42,7 +42,7 @@ public class Student extends User {
         Student.students = students;
     }
 
-    public static ArrayList<Course> getAvailableCourses(){
+    public ArrayList<Course> getAvailableCourses(){///
         ArrayList<Course> studentsCourses = new ArrayList<>(courses);
         ArrayList<Course> allCourses = new ArrayList<>(Course.getCoursesArrayList());
         ArrayList<Course> union = new ArrayList<>(studentsCourses);

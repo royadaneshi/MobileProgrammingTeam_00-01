@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.edufire.rr.models.Course;
+
 public class ProfessorPanelFragment extends Fragment {
 
     private Button createClassBtn;
@@ -44,9 +46,11 @@ public class ProfessorPanelFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(ProfessorPanelFragment.this)
                         .navigate(R.id.action_professorPanelFragment_to_professorMyClassListActivity);
+
             }
         });
 
         return view;
     }
+
 }
