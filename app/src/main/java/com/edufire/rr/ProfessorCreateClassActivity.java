@@ -1,6 +1,7 @@
 package com.edufire.rr;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +33,10 @@ public class ProfessorCreateClassActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                  new Course(className.getText().toString(),Professor.getProfessor(User.getActiveUser().getUsername()));
-                //todo back to last page
+
+                 // back to last page
+                Intent myIntent = new Intent(view.getContext(), ProfessorPanelFragment.class);
+                startActivity(myIntent);
             }
         });
     }
