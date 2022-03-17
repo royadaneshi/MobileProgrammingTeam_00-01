@@ -33,8 +33,12 @@ public class Professor extends User {
 
     }
 
-    public ArrayList<String> getClasses() {
-        return courses;
+    public ArrayList<Course> getClasses() {
+        ArrayList<Course> studentsCourses = new ArrayList<>();
+        for (int i = 0; i < courses.size(); i++) {
+            studentsCourses.add(Course.getCourseByName(courses.get(i)));
+        }
+        return studentsCourses;
     }
 
     public static HashMap<String, Professor> getAllProfessors() {

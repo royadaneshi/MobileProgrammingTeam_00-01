@@ -30,9 +30,9 @@
             </intent-filter>
         </activity>
         <!--        <activity android:name=".ProfessorCreateClassActivity" />-->
-        <activity
-            android:name=".ProfessorCreateClassActivity"
-            android:parentActivityName=".ProfessorPanelFragment" />
+<!--        <activity-->
+<!--            android:name=".ProfessorCreateClassActivity"-->
+<!--            android:parentActivityName=".ProfessorPanelFragment" />-->
     </application>
 
 </manifest>

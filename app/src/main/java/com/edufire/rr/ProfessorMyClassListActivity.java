@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ProfessorMyClassListActivity  extends Fragment {
 
     private RecyclerView recyclerView;
-    private ArrayList<Course> courses;
+    private ArrayList<Course> courses = new ArrayList<>();
 
     Professor professor = Professor.getProfessor(User.getActiveUser().getUsername());
 
@@ -35,7 +35,7 @@ public class ProfessorMyClassListActivity  extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        createFakeData();
+        courses.addAll(Professor.getProfessor(User.getActiveUser().getUsername()).getClasses());
 
         View view = inflater.inflate(R.layout.fragment_professor_my_classes,container,false);
 

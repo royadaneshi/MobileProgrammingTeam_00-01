@@ -34,11 +34,11 @@
         android:label="fragment_professor_panel"
         tools:layout="@layout/fragment_professor_panel" >
         <action
-            android:id="@+id/action_professorPanelFragment_to_professorCreateClassActivity"
-            app:destination="@id/professorCreateClassActivity" />
-        <action
             android:id="@+id/action_professorPanelFragment_to_professorMyClassListActivity"
             app:destination="@id/professorMyClassListActivity" />
+        <action
+            android:id="@+id/action_professorPanelFragment_to_professorCreateClassActivity"
+            app:destination="@id/professorCreateClassActivity" />
     </fragment>
     <fragment
         android:id="@+id/studentPanelFragment"
@@ -52,11 +52,6 @@
             android:id="@+id/action_studentPanelFragment_to_studentJoinClassActivity"
             app:destination="@id/studentJoinClassActivity" />
     </fragment>
-    <activity
-        android:id="@+id/professorCreateClassActivity"
-        android:name="com.edufire.rr.ProfessorCreateClassActivity"
-        android:label="ProfessorCreateClassActivity"
-        tools:layout="@layout/fragment_professor_create_class"/>
     <fragment
         android:id="@+id/professorMyClassListActivity"
         android:name="com.edufire.rr.ProfessorMyClassListActivity"
@@ -72,5 +67,10 @@
         android:name="com.edufire.rr.StudentJoinClassActivity"
         tools:layout="@layout/fragment_student_join_class"
         android:label="StudentJoinClassActivity" />
+    <fragment
+        android:id="@+id/professorCreateClassActivity"
+        android:name="com.edufire.rr.ProfessorCreateClassActivity"
+        android:label="ProfessorCreateClassActivity"
+        tools:layout="@layout/fragment_professor_create_class"/>
 
 </navigation>
