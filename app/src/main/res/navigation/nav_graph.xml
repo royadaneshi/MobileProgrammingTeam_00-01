@@ -71,6 +71,10 @@
         android:id="@+id/professorCreateClassActivity"
         android:name="com.edufire.rr.ProfessorCreateClassActivity"
         android:label="ProfessorCreateClassActivity"
-        tools:layout="@layout/fragment_professor_create_class"/>
+        tools:layout="@layout/fragment_professor_create_class">
+        <action
+            android:id="@+id/action_professorCreateClassActivity_to_professorPanelFragment"
+            app:destination="@id/professorPanelFragment" />
+    </fragment>
 
 </navigation>

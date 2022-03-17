@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Professor;
@@ -64,10 +65,13 @@ public class ProfessorCreateClassActivity extends Fragment {
                 new Course(className.getText().toString(),Professor.getProfessor(User.getActiveUser().getUsername()));
 
                 //save to db
+                DataBase.setPrefs("course",DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(),"ProfessorsData");
+                DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+                //
 
-                DataBase.setPrefs("course",DataBase.convertCourseHashMapToString(Course.getClasses()),
-                        getActivity(),"ProfessorsData");
-
+                NavHostFragment.findNavController(ProfessorCreateClassActivity.this)
+                        .navigate(R.id.action_professorCreateClassActivity_to_professorPanelFragment);
             }
         });
 
