@@ -56,7 +56,11 @@
         android:id="@+id/professorMyClassListActivity"
         android:name="com.edufire.rr.ProfessorMyClassListActivity"
         tools:layout="@layout/fragment_professor_my_classes"
-        android:label="ProfessorMyClassListActivity" />
+        android:label="ProfessorMyClassListActivity" >
+        <action
+            android:id="@+id/action_professorMyClassListActivity_to_professorClassFragment"
+            app:destination="@id/professorClassFragment" />
+    </fragment>
     <fragment
         android:id="@+id/studentMyClassesActivity"
         android:name="com.edufire.rr.StudentMyClassesActivity"
@@ -76,5 +80,10 @@
             android:id="@+id/action_professorCreateClassActivity_to_professorPanelFragment"
             app:destination="@id/professorPanelFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/professorClassFragment"
+        android:name="com.edufire.rr.ProfessorClassFragment"
+        tools:layout="@layout/fragment_professor_class"
+        android:label="ProfessorClassFragment" />
 
 </navigation>

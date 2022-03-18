@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.User;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
