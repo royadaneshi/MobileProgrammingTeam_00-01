@@ -10,6 +10,7 @@ public class Exercise {
     private Course course;
     private String answer;
     private Professor professor;
+    private Integer grade;
 
     private static HashMap<String, Exercise> exercises = new HashMap<>();
 
@@ -43,5 +44,13 @@ public class Exercise {
 
     public static Exercise getExerciseByName(String name) {
         return exercises.get(name);
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
     }
 }

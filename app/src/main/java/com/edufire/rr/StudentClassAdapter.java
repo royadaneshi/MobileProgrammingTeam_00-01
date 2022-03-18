@@ -1,5 +1,6 @@
 package com.edufire.rr;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.edufire.rr.models.Exercise;
@@ -33,6 +36,21 @@ public class StudentClassAdapter extends RecyclerView.Adapter<StudentClassAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.exerciseName.setText(exercises.get(position).getNameOfExercise());
+        holder.gotoExercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                Fragment studentExerciseFragment = new StudentExerciseFragment();
+                Bundle args = new Bundle();
+                args.putString("exercisename",holder.exerciseName.getText().toString());
+                studentExerciseFragment.setArguments(args);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_student_exercise_layout,studentExerciseFragment,null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
     @Override
