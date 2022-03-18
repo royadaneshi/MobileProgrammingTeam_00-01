@@ -1,5 +1,7 @@
 package com.edufire.rr.models;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,8 +25,12 @@ public class Student extends User {
         return students.get(username);
     }
 
-    public ArrayList<String> getClasses() {
-        return courses;
+    public ArrayList<Course> getCourses() {
+        ArrayList<Course> studentsCourses = new ArrayList<>();
+        for (int i = 0; i < courses.size(); i++) {
+            studentsCourses.add(Course.getCourseByName(courses.get(i)));
+        }
+        return studentsCourses;
     }
 
     public void joinClass(Course courseToJoin) {
@@ -40,17 +46,20 @@ public class Student extends User {
     }
 
     public ArrayList<Course> getAvailableCourses(){///I have changed
-        ArrayList<Course> studentsCourses = new ArrayList<>();
-        for (int i = 0; i < courses.size(); i++) {
-            studentsCourses.add(Course.getCourseByName(courses.get(i)));
+        Log.d("in", "im in");
+        if (courses.isEmpty()){
+            return Course.getCoursesArrayList();
+        }else{
+            ArrayList<Course> studentsCourses = new ArrayList<>(getCourses());
+            ArrayList<Course> allCourses = new ArrayList<>(Course.getCoursesArrayList());
+            ArrayList<Course> union = new ArrayList<>(studentsCourses);
+            union.addAll(allCourses);
+            ArrayList<Course> interSection = new ArrayList<>(allCourses);
+            interSection.retainAll(studentsCourses);
+            ArrayList<Course> symmetricDifference = new ArrayList<>(union);
+            symmetricDifference.removeAll(interSection);
+            return symmetricDifference;
         }
-        ArrayList<Course> allCourses = new ArrayList<>(Course.getCoursesArrayList());
-        ArrayList<Course> union = new ArrayList<>(studentsCourses);
-        union.addAll(allCourses);
-        ArrayList<Course> interSection = new ArrayList<>(allCourses);
-        ArrayList<Course> symetricDiffrence = new ArrayList<>(union);
-        symetricDiffrence.removeAll(interSection);
-        return symetricDiffrence;
     }
 
 }
