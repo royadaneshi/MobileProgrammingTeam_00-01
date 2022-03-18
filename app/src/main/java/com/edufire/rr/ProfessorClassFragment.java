@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,9 +30,7 @@ public class ProfessorClassFragment extends Fragment {
     TextView classname;
     Button createExercise;
     EditText exerciseName;
-    private RecyclerView recyclerView;
-    private ArrayList<Exercise> exercises = new ArrayList<>();
-
+    Button allExercises;
     //todo fill exercises with data(done)
 
     @SuppressLint("SetTextI18n")
@@ -42,6 +41,7 @@ public class ProfessorClassFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_professor_class, container, false);
 
         classname = view.findViewById(R.id.prof_my_class_txt);
+        allExercises = view.findViewById(R.id.viewExercisesProfessor);
 
 
         createExercise = view.findViewById(R.id.createExercise);
@@ -51,8 +51,7 @@ public class ProfessorClassFragment extends Fragment {
             classname.setText("this is null");
         } else classname.setText(args.getString("classname"));
 
-
-        exercises=Course.getCourseByName(args.getString("classname")).getExercisesOfClass();
+        Course.setActiveCourseByName(args.getString("classname"));
 
         createExercise.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
@@ -68,12 +67,19 @@ public class ProfessorClassFragment extends Fragment {
             }
         });
 
+        allExercises.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(ProfessorClassFragment.this)
+                        .navigate(R.id.action_professorClassFragment_to_professorExerciseList);
+
+            }
+        });
 
 
-        recyclerView = view.findViewById(R.id.exerciseRecycleView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new ProfessorClassAdapter(exercises));//////
+
+
         return view;
     }
 }

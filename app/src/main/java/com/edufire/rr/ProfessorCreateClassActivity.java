@@ -27,28 +27,6 @@ public class ProfessorCreateClassActivity extends Fragment {
 
     private EditText className;
     private Button createBtn;
-//
-//    @SuppressLint("SetTextI18n")
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.fragment_professor_create_class);
-//
-//        className = findViewById(R.id.class_name);
-//        createBtn = findViewById(R.id.create_class_btn);
-//
-//        className.setText("Enter class name");
-//
-//        createBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                new Course(className.getText().toString(), Professor.getProfessor(User.getActiveUser().getUsername()));
-//                //save courses to sharedPreference
-//                DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), ProfessorCreateClassActivity.this, "ProfessorsData");
-//
-//            }
-//        });
-//    }
 
 
     @Nullable

@@ -79,11 +79,21 @@
         <action
             android:id="@+id/action_professorCreateClassActivity_to_professorPanelFragment"
             app:destination="@id/professorPanelFragment" />
+        <action
+            android:id="@+id/action_professorClassFragment_to_professorExerciseList"
+            app:destination="@id/professorExerciseList" />
     </fragment>
     <fragment
         android:id="@+id/professorClassFragment"
         android:name="com.edufire.rr.ProfessorClassFragment"
         tools:layout="@layout/fragment_professor_class"
-        android:label="ProfessorClassFragment" />
+        android:label="ProfessorClassFragment" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/professorExerciseList"
+        android:name="com.edufire.rr.ProfessorExerciseList"
+        android:label="fragment_professor_exercise_list"
+        tools:layout="@layout/fragment_professor_exercise_list" />
 
 </navigation>
