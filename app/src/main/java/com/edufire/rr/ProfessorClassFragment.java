@@ -12,8 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Exercise;
+import com.edufire.rr.models.Professor;
+import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 
 public class ProfessorClassFragment extends Fragment {
@@ -22,6 +27,8 @@ public class ProfessorClassFragment extends Fragment {
     TextView classname;
     Button createExercise;
     EditText exerciseName;
+    private RecyclerView recyclerView;
+
     @SuppressLint("SetTextI18n")
     @Nullable
     @Override
@@ -41,11 +48,22 @@ public class ProfessorClassFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-              //  new Exercise(exerciseName.getText().toString(),, User.getActiveUser());
-
+                Course.getCourseByName(classname.toString()).addExerciseToClass(new Exercise(exerciseName.getText().toString(), Course.getCourseByName(classname.toString()), Professor.getProfessor(User.getActiveUser().getUsername())));
+                //save to db
+                DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+                DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
+                DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(), "ProfessorsData");
+                //
             }
         });
 
+
+
+        recyclerView = view.findViewById(R.id.exerciseRecycleView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(new ProfessorMyClassesAdapter(courses));//////
         return view;
     }
 }
