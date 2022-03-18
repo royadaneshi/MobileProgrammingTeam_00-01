@@ -1,6 +1,7 @@
 package com.edufire.rr;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.edufire.rr.models.Course;
@@ -57,6 +60,21 @@ public class StudentMyClassesAdapter extends RecyclerView.Adapter<StudentMyClass
     public void onBindViewHolder(@NonNull StudentMyClassesAdapter.ViewHolder holder, int position) {
         holder.className.setText(courses.get(position).getName());
         holder.profName.setText(courses.get(position).getProfessor().getCompleteName());
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                Fragment studentClassFragment = new StudentClassFragment();
+                Bundle args = new Bundle();
+                args.putString("classname",holder.className.getText().toString());
+                studentClassFragment.setArguments(args);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_student_my_classes_layout,studentClassFragment,null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
     @Override
