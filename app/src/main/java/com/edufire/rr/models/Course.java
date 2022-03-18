@@ -10,6 +10,8 @@ public class Course {
     private static HashMap<String, Course> classes = new HashMap<>() ;
     private HashMap<String,Exercise> exercisesOfClass=new HashMap<>();
 
+    private static Course activeCourse;
+
     public Course(String name, Professor professor) {
         this.name = name;
         this.professor = professor;
@@ -19,6 +21,14 @@ public class Course {
         }
         professor.addNewClass(name);///here should call on object(I fixed it)
         classes.put(name,this);
+    }
+
+    public static void setActiveCourseByName(String activeCourseName) {
+        Course.activeCourse = classes.get(activeCourseName);
+    }
+
+    public static Course getActiveCourse() {
+        return activeCourse;
     }
 
     public ArrayList<Student> getStudents() {

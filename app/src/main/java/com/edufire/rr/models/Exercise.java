@@ -13,9 +13,8 @@ public class Exercise {
 
     private static HashMap<String, Exercise> exercises = new HashMap<>();
 
-    public Exercise(String name, Course course, String answer, Professor professor) {
+    public Exercise(String name, Course course,  Professor professor) {
         this.name = name;
-        this.answer = answer;
         this.professor = professor;
         this.course = course;
         exercises.put(name, this);
@@ -25,6 +24,9 @@ public class Exercise {
     }
     public Course getCourseOfExercise() {
         return course;
+    }
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     public String getAnswer() {
