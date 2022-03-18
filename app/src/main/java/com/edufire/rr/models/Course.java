@@ -8,7 +8,7 @@ public class Course {
     private  Professor professor;
     private final ArrayList<Student> students;
     private static HashMap<String, Course> classes = new HashMap<>() ;
-
+    private HashMap<String,Exercise> exercisesOfClass=new HashMap<>();
 
     public Course(String name, Professor professor) {
         this.name = name;
@@ -37,9 +37,17 @@ public class Course {
         return name;
     }
 
+    public void addExerciseToClass(Exercise exercise){
+        if (exercisesOfClass ==null){
+            exercisesOfClass=new HashMap<>();
+        }
+        exercisesOfClass.put(exercise.getNameOfExercise(),exercise);
+    }
+
     public static ArrayList<Course> getCoursesArrayList(){
         return new ArrayList<>(classes.values());
     }
+
     public static Course getCourseByName(String name){
         return classes.get(name);
     }
