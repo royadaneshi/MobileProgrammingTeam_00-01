@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.edufire.rr.models.Exercise;
+import com.edufire.rr.models.Student;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,10 +41,12 @@ public class ExecriseProfessorListAdapter extends RecyclerView.Adapter<ExecriseP
             exercisesList.get(position).setGrade(0);
         }
         holder.score.setText(exercisesList.get(position).getGrade());
+        String temp_student = students.get(position);
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /////
+                    exercises.get(temp_student).setGrade(Integer.parseInt(holder.score.toString()));
             }
         });
     }

@@ -6,6 +6,8 @@ import java.util.HashMap;
 public class Exercise {
 
 
+
+
     private String name;
     private Course course;
     private String answer;
@@ -37,7 +39,9 @@ public class Exercise {
     public static void setExercises(HashMap<String, Exercise> exercises) {
         Exercise.exercises = exercises;
     }
-
+    public void setNameExercise(String name) {
+        this.name = name;
+    }
     public String getAnswer() {
         return answer;
     }

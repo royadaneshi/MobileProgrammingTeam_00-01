@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,7 @@ public class ProfessorClassAdapter extends RecyclerView.Adapter<ProfessorClassAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(exercises.get(position).getNameOfExercise(), "onBindViewHolder: ");
         holder.exerciseName.setText(exercises.get(position).getNameOfExercise());
+        Exercise tempExercise=exercises.get(position);
         holder.gotoExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +54,15 @@ public class ProfessorClassAdapter extends RecyclerView.Adapter<ProfessorClassAd
                         .commit();
             }
         });
+        holder.applyNewExerciseName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //change exercise name
+
+                tempExercise.setNameExercise(holder.newExerciseName.getText().toString());
+
+            }
+        });
     }
 
     @Override
@@ -62,10 +73,14 @@ public class ProfessorClassAdapter extends RecyclerView.Adapter<ProfessorClassAd
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView exerciseName;
         private final Button gotoExercise;
+        private EditText newExerciseName;
+        private Button applyNewExerciseName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             exerciseName = itemView.findViewById(R.id.prof_class_exercises_row_txt);
             gotoExercise = itemView.findViewById(R.id.prof_class_exercises_row_btn);
+            newExerciseName = itemView.findViewById(R.id.newExerciseNameProfessor);
+            applyNewExerciseName = itemView.findViewById(R.id.EditExerciseNameProfessorBtn);
         }
 
         public TextView getExerciseName() {
