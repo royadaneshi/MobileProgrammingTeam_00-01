@@ -42,9 +42,9 @@ public class ProfessorClassAdapter extends RecyclerView.Adapter<ProfessorClassAd
             public void onClick(View v) {
                 AppCompatActivity activity =(AppCompatActivity) v.getContext();
                 Fragment professorExerciseList=new ExerciseProfessorList();
-                Bundle arg =new Bundle();
-                arg.putString("exerciseName",holder.exerciseName.getText().toString());
-                professorExerciseList.setArguments(arg);
+                Bundle args =new Bundle();
+                args.putString("exerciseName",holder.exerciseName.getText().toString());
+                professorExerciseList.setArguments(args);
                 activity.getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.fragment_professor_class,professorExerciseList,null)
