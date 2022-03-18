@@ -82,5 +82,9 @@ public class Course {
     public static void setClasses(HashMap<String, Course> classes) {
         Course.classes = classes;
     }
+    public ArrayList<Exercise> getExercisesArrayList(){
+        ArrayList<Exercise> exercises = new ArrayList<>(exercisesOfClass.values());
+        return exercises;
+    }
 
 }
