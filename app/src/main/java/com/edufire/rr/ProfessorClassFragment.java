@@ -65,6 +65,7 @@ public class ProfessorClassFragment extends Fragment {
                 DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
                 DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
                 DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(), "ProfessorsData");
+                DataBase.setPrefs("exercise", DataBase.convertExerciseHashMapToString(Exercise.getExercises()), getActivity(), "ProfessorsData");
                 //
             }
         });

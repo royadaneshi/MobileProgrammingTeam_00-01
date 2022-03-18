@@ -34,6 +34,10 @@ public class Exercise {
         studentsAnswer.put(studentName,this);
     }
 
+    public static void setExercises(HashMap<String, Exercise> exercises) {
+        Exercise.exercises = exercises;
+    }
+
     public String getAnswer() {
         return answer;
     }

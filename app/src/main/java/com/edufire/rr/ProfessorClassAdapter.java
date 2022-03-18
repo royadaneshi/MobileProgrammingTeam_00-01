@@ -1,6 +1,7 @@
 package com.edufire.rr;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class ProfessorClassAdapter extends RecyclerView.Adapter<ProfessorClassAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.d(exercises.get(position).getNameOfExercise(), "onBindViewHolder: ");
         holder.exerciseName.setText(exercises.get(position).getNameOfExercise());
         holder.gotoExercise.setOnClickListener(new View.OnClickListener() {
             @Override

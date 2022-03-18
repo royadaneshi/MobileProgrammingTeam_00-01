@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.edufire.rr.databinding.FragmentFirstBinding;
 import com.edufire.rr.models.Course;
+import com.edufire.rr.models.Exercise;
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
@@ -31,6 +32,7 @@ public class FirstFragment extends Fragment {
         loadStudents();
         loadProfessors();
         loadCourses();
+        loadExercise();
         return binding.getRoot();
     }
 
@@ -110,6 +112,14 @@ public class FirstFragment extends Fragment {
             DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(), "ProfessorsData");
         } else {
             Course.setClasses(DataBase.convertStringToCourseHashMap(DataBase.getPrefs("course", getActivity(), "ProfessorsData")));
+        }
+    }
+
+    private void loadExercise() {
+        if (DataBase.getPrefs("exercise", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("exercise", getActivity(), "ProfessorsData").equals("notfound")) {
+            DataBase.setPrefs("exercise", DataBase.convertExerciseHashMapToString(Exercise.getExercises()), getActivity(), "ProfessorsData");
+        } else {
+            Exercise.setExercises(DataBase.convertStringToExerciseHashMap(DataBase.getPrefs("exercise", getActivity(), "ProfessorsData")));
         }
     }
 

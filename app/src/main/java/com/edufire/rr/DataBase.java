@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.edufire.rr.models.Course;
+import com.edufire.rr.models.Exercise;
 import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
@@ -17,6 +18,12 @@ public class DataBase {
 
 
     public static String convertUserHashMapToString(HashMap<String, User> hashMap) {
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        String jsonString = gson.toJson(hashMap);
+        return jsonString;
+    }
+
+    public static String convertExerciseHashMapToString(HashMap<String, Exercise> hashMap) {
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String jsonString = gson.toJson(hashMap);
         return jsonString;
@@ -79,6 +86,21 @@ public class DataBase {
         }
         return null;
     }
+
+    public static HashMap<String, Exercise> convertStringToExerciseHashMap(String jsonString) {
+        try {
+            HashMap<String, Exercise> exerciseInfo;
+            exerciseInfo = new Gson().fromJson(jsonString,
+                    new TypeToken<HashMap<String, Exercise>>() {
+                    }.getType());
+            return exerciseInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     public static HashMap<String, Course> convertStringToCourseHashMap(String jsonString) {
         try {
             HashMap<String, Course> courseInfo;
