@@ -21,6 +21,8 @@ import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 
+import java.util.ArrayList;
+
 public class ProfessorClassFragment extends Fragment {
 
     Bundle args;
@@ -28,6 +30,9 @@ public class ProfessorClassFragment extends Fragment {
     Button createExercise;
     EditText exerciseName;
     private RecyclerView recyclerView;
+    private ArrayList<Exercise> exercises = new ArrayList<>();
+
+    //todo fill exercises with data
 
     @SuppressLint("SetTextI18n")
     @Nullable
@@ -63,7 +68,7 @@ public class ProfessorClassFragment extends Fragment {
         recyclerView = view.findViewById(R.id.exerciseRecycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new ProfessorMyClassesAdapter(courses));//////
+        recyclerView.setAdapter(new ProfessorClassAdapter(exercises));//////
         return view;
     }
 }
