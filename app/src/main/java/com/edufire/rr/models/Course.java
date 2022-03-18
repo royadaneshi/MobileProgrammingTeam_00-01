@@ -82,9 +82,13 @@ public class Course {
     public static void setClasses(HashMap<String, Course> classes) {
         Course.classes = classes;
     }
-    public ArrayList<Exercise> getExercisesArrayList(){
-        ArrayList<Exercise> exercises = new ArrayList<>(exercisesOfClass.values());
-        return exercises;
+
+    public ArrayList<Exercise> getExercisesArrayList() {
+        ArrayList<Exercise> studentsCourses = new ArrayList<>();
+        for (int i = 0; i < exercisesOfClass.size(); i++) {
+            studentsCourses.add(Exercise.getExerciseByName(exercisesOfClass.get(i)));
+        }
+        return studentsCourses;
     }
 
 }
