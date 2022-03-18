@@ -79,9 +79,6 @@
         <action
             android:id="@+id/action_professorCreateClassActivity_to_professorPanelFragment"
             app:destination="@id/professorPanelFragment" />
-        <action
-            android:id="@+id/action_professorClassFragment_to_professorExerciseList"
-            app:destination="@id/professorExerciseList" />
     </fragment>
     <fragment
         android:id="@+id/professorClassFragment"
@@ -89,6 +86,9 @@
         tools:layout="@layout/fragment_professor_class"
         android:label="ProfessorClassFragment" >
 
+        <action
+            android:id="@+id/action_professorClassFragment_to_professorExerciseList"
+            app:destination="@id/professorExerciseList" />
     </fragment>
     <fragment
         android:id="@+id/professorExerciseList"

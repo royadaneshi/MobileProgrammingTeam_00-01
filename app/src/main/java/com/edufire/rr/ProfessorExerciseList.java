@@ -29,7 +29,7 @@ public class ProfessorExerciseList extends Fragment {
 //        recyclerView = view.findViewById(R.id.exerciseRecycleView);
 //        recyclerView.setHasFixedSize(true);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-//        recyclerView.setAdapter(new ProfessorClassAdapter(exercises));//////
+//        recyclerView.setAdapter(new ProfessorClassAdapter(exercises));
         return view;
     }
 }

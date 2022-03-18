@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,8 +30,11 @@ public class ProfessorClassFragment extends Fragment {
     Bundle args;
     TextView classname;
     Button createExercise;
+    private RecyclerView recyclerView;
     EditText exerciseName;
     Button allExercises;
+    private ArrayList<Exercise> exercises = new ArrayList<>();
+
     //todo fill exercises with data(done)
 
     @SuppressLint("SetTextI18n")
@@ -41,9 +45,6 @@ public class ProfessorClassFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_professor_class, container, false);
 
         classname = view.findViewById(R.id.prof_my_class_txt);
-        allExercises = view.findViewById(R.id.viewExercisesProfessor);
-
-
         createExercise = view.findViewById(R.id.createExercise);
         exerciseName = view.findViewById(R.id.exerciseName);
 
@@ -57,7 +58,8 @@ public class ProfessorClassFragment extends Fragment {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                Course.getCourseByName(args.getString("classname")).addExerciseToClass(new Exercise(exerciseName.getText().toString(), Course.getCourseByName(args.getString("classname")), Professor.getProfessor(User.getActiveUser().getUsername())));
+                Course.getCourseByName(args.getString("classname"))
+                        .addExerciseToClass(new Exercise(exerciseName.getText().toString(), Course.getCourseByName(args.getString("classname")), Professor.getProfessor(User.getActiveUser().getUsername())));
                 //save to db
                 DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
                 DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
@@ -66,17 +68,11 @@ public class ProfessorClassFragment extends Fragment {
                 //
             }
         });
-
-        allExercises.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View v) {
-                NavHostFragment.findNavController(ProfessorClassFragment.this)
-                        .navigate(R.id.action_professorClassFragment_to_professorExerciseList);
-
-            }
-        });
-
+        exercises= Course.getActiveCourse().getExercisesOfClass();
+        recyclerView = view.findViewById(R.id.exerciseRecycleView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(new ProfessorClassAdapter(exercises));
 
 
 
