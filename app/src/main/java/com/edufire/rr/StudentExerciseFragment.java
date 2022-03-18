@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.edufire.rr.models.Exercise;
+import com.edufire.rr.models.Student;
+import com.edufire.rr.models.User;
 import com.google.android.material.snackbar.Snackbar;
 
 public class StudentExerciseFragment  extends Fragment {
@@ -40,7 +42,7 @@ public class StudentExerciseFragment  extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!answer.getText().toString().equals("")){
-                    exercise.setAnswer(answer.getText().toString());
+                    exercise.setAnswer(answer.getText().toString(), Student.getActiveUser().getUsername());
                 }else{
                     Snackbar snackbar = Snackbar
                             .make(v, "please enter your answer", Snackbar.LENGTH_LONG);

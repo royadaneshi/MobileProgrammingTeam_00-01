@@ -1,5 +1,6 @@
 package com.edufire.rr;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.edufire.rr.models.Exercise;
@@ -35,7 +38,16 @@ public class ProfessorClassAdapter extends RecyclerView.Adapter<ProfessorClassAd
         holder.gotoExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AppCompatActivity activity =(AppCompatActivity) v.getContext();
+                Fragment professorExerciseList=new ExerciseProfessorList();
+                Bundle arg =new Bundle();
+                arg.putString("exerciseName",holder.exerciseName.getText().toString());
+                professorExerciseList.setArguments(arg);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_professor_class,professorExerciseList,null)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

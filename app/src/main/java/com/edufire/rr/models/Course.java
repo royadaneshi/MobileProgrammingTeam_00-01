@@ -90,5 +90,13 @@ public class Course {
         }
         return studentsCourses;
     }
+    public Exercise getExerciseByName(String name){
+        for (int i = 0; i < exercisesOfClass.size(); i++) {
+            if (exercisesOfClass.get(i).equals(name)){
+                return Exercise.getExerciseByName(exercisesOfClass.get(i));
+            }
+        }
+        return null;
+    }
 
 }

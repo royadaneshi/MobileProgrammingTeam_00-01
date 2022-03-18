@@ -12,6 +12,9 @@ public class Exercise {
     private Professor professor;
     private Integer grade;
 
+
+
+    private HashMap<String,Exercise> studentsAnswer=new HashMap<>();
     private static HashMap<String, Exercise> exercises = new HashMap<>();
 
     public Exercise(String name, Course course,  Professor professor) {
@@ -26,8 +29,9 @@ public class Exercise {
     public Course getCourseOfExercise() {
         return course;
     }
-    public void setAnswer(String answer) {
+    public void setAnswer(String answer,String studentName) {
         this.answer = answer;
+        studentsAnswer.put(studentName,this);
     }
 
     public String getAnswer() {
@@ -52,5 +56,9 @@ public class Exercise {
 
     public void setGrade(Integer grade) {
         this.grade = grade;
+    }
+
+    public HashMap<String, Exercise> getStudentsAnswer() {
+        return studentsAnswer;
     }
 }
