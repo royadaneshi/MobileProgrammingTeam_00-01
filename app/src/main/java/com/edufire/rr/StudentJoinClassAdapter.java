@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.edufire.rr.models.Course;
+import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 import com.google.android.material.snackbar.Snackbar;
@@ -77,7 +78,13 @@ public class StudentJoinClassAdapter extends RecyclerView.Adapter<StudentJoinCla
         Course course = Course.getCourseByName(classname);
         if (course!= null){
             student.joinClass(course);
-            //todo db for join class
+            //todo db for join class(done!)
+            //save to db
+            DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), view.getContext(), "ProfessorsData");
+            DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), view.getContext(), "ProfessorsData");
+            DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), view.getContext(), "ProfessorsData");
+            DataBase.setPrefs("course",DataBase.convertCourseHashMapToString(Course.getClasses()), view.getContext(),"ProfessorsData");
+            //
         }else {
             Snackbar snackbar = Snackbar
                     .make(view, "Course not found!", Snackbar.LENGTH_LONG);

@@ -51,7 +51,13 @@ public class StudentJoinClassActivity extends Fragment {
                 Course course = Course.getCourseByName(classname.getText().toString());
                 if (course != null){
                     student.joinClass(course);
-                    //todo db for join class
+                    //todo db for join class(done!)
+                    //save to db
+                    DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("course",DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(),"ProfessorsData");
+                    //
                 }else{
                     Snackbar snackbar = Snackbar
                             .make(view, "Course not found!", Snackbar.LENGTH_LONG);
