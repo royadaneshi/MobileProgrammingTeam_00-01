@@ -1,14 +1,19 @@
 package com.edufire.rr.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Course {
     private final String name;
-    private  Professor professor;
+    private Professor professor;
     private final ArrayList<Student> students;
-    private static HashMap<String, Course> classes = new HashMap<>() ;
-    private HashMap<String,Exercise> exercisesOfClass=new HashMap<>();
+
+
+    private static HashMap<String, Course> classes = new HashMap<>();
+
+    private ArrayList<String> exercisesOfClass = new ArrayList<>();
 
     private static Course activeCourse;
 
@@ -16,15 +21,27 @@ public class Course {
         this.name = name;
         this.professor = professor;
         students = new ArrayList<>();
-        if(classes==null){
-            classes=new HashMap<>();
+        if (classes == null) {
+            classes = new HashMap<>();
         }
         professor.addNewClass(name);///here should call on object(I fixed it)
-        classes.put(name,this);
+        classes.put(name, this);
     }
 
     public static void setActiveCourseByName(String activeCourseName) {
         Course.activeCourse = classes.get(activeCourseName);
+    }
+
+
+    public ArrayList<Exercise> getExercisesOfClass() {
+        if (exercisesOfClass == null) {
+            exercisesOfClass = new ArrayList<>();
+        }
+        ArrayList<Exercise> exercisesOfCourse = new ArrayList<>();
+        for (int i = 0; i < exercisesOfClass.size(); i++) {
+            exercisesOfCourse.add(Exercise.getExerciseByName(exercisesOfClass.get(i)));
+        }
+        return exercisesOfCourse;
     }
 
     public static Course getActiveCourse() {
@@ -47,20 +64,21 @@ public class Course {
         return name;
     }
 
-    public void addExerciseToClass(Exercise exercise){
-        if (exercisesOfClass ==null){
-            exercisesOfClass=new HashMap<>();
+    public void addExerciseToClass(Exercise exercise) {
+        if (exercisesOfClass == null) {
+            exercisesOfClass = new ArrayList<>();
         }
-        exercisesOfClass.put(exercise.getNameOfExercise(),exercise);
+        exercisesOfClass.add(exercise.getNameOfExercise());
     }
 
-    public static ArrayList<Course> getCoursesArrayList(){
+    public static ArrayList<Course> getCoursesArrayList() {
         return new ArrayList<>(classes.values());
     }
 
-    public static Course getCourseByName(String name){
+    public static Course getCourseByName(String name) {
         return classes.get(name);
     }
+
     public static void setClasses(HashMap<String, Course> classes) {
         Course.classes = classes;
     }

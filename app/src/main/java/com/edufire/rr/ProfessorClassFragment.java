@@ -32,7 +32,7 @@ public class ProfessorClassFragment extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<Exercise> exercises = new ArrayList<>();
 
-    //todo fill exercises with data
+    //todo fill exercises with data(done)
 
     @SuppressLint("SetTextI18n")
     @Nullable
@@ -40,7 +40,10 @@ public class ProfessorClassFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         args = getArguments();
         View view = inflater.inflate(R.layout.fragment_professor_class, container, false);
+
         classname = view.findViewById(R.id.prof_my_class_txt);
+
+
         createExercise = view.findViewById(R.id.createExercise);
         exerciseName = view.findViewById(R.id.exerciseName);
 
@@ -49,11 +52,13 @@ public class ProfessorClassFragment extends Fragment {
         } else classname.setText(args.getString("classname"));
 
 
+        exercises=Course.getCourseByName(args.getString("classname")).getExercisesOfClass();
+
         createExercise.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                Course.getCourseByName(classname.toString()).addExerciseToClass(new Exercise(exerciseName.getText().toString(), Course.getCourseByName(classname.toString()), Professor.getProfessor(User.getActiveUser().getUsername())));
+                Course.getCourseByName(args.getString("classname")).addExerciseToClass(new Exercise(exerciseName.getText().toString(), Course.getCourseByName(args.getString("classname")), Professor.getProfessor(User.getActiveUser().getUsername())));
                 //save to db
                 DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
                 DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
