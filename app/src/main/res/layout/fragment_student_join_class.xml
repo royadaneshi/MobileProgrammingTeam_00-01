@@ -23,24 +23,24 @@
         android:autofillHints="class name"
         android:ems="10"
         android:inputType="textPersonName"
-        android:minHeight="10dp"
+        android:minHeight="48dp"
         android:text="class name"
         app:layout_constraintBottom_toTopOf="@+id/student_join_class_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542"
         tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/join_by_name_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="94dp"
+        android:layout_height="48dp"
         android:text="Join"
         app:layout_constraintBottom_toTopOf="@+id/student_join_class_recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toEndOf="@+id/student_join_class_name_edit_txt"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.567" />
 </androidx.constraintlayout.widget.ConstraintLayout>

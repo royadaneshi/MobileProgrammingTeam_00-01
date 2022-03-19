@@ -38,7 +38,6 @@ public class StudentFragment extends Fragment {
         completeName = view.findViewById(R.id.completeNameStudent);
         studentId = view.findViewById(R.id.studentIdStudent);
         password = view.findViewById(R.id.passwordStudent);
-        textView = view.findViewById(R.id.textViewStudent);
         back = view.findViewById(R.id.backBtnStudent);
 
         registerStudent.setOnClickListener(new View.OnClickListener() {

@@ -34,7 +34,7 @@
 
         <Button
             android:id="@+id/student_panel_my_classes_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="158dp"
             android:layout_marginTop="128dp"
@@ -47,9 +47,9 @@
 
         <Button
             android:id="@+id/student_panel_join_class_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:text="@string/student_panel_join_class_string"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

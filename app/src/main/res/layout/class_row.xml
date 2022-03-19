@@ -36,6 +36,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
+                android:textColor="@color/black"
                 android:text="Class Name"
                 android:textSize="24sp"
                 android:textStyle="bold"
