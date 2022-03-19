@@ -1,5 +1,6 @@
 package com.edufire.rr;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,14 +30,18 @@ public class ExecriseProfessorListAdapter extends RecyclerView.Adapter<ExecriseP
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_professor_exercise_answer_row, parent, false);
+        System.out.println("/hhhhhhhhhhhhhereeeeeeeee");
+
         return new ViewHolder(view);
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.studentName.setText(students.get(position));
         holder.answer.setText(exercisesList.get(position).getAnswer());
+
         if (exercisesList.get(position).getGrade() == null) {
             exercisesList.get(position).setGrade(0);
         }
@@ -68,7 +73,6 @@ public class ExecriseProfessorListAdapter extends RecyclerView.Adapter<ExecriseP
             answer = itemView.findViewById(R.id.answerExerciseProfessor);
             score = itemView.findViewById(R.id.Grade);
             submit = itemView.findViewById(R.id.submmitBtn);
-
 
         }
     }

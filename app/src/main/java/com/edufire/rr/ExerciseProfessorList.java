@@ -28,7 +28,9 @@ public class ExerciseProfessorList extends Fragment {
         View view = inflater.inflate(R.layout.fragment_exercise_professor_list, container, false);
         exerciseName = bundle.getString("exerciseName");
         //////////////
+        System.out.println(Course.getActiveCourse().getExerciseByName(exerciseName).getStudentsAnswersByExerciseValue().get("44").getAnswer()+" ///////////////////////////");
         answers.putAll(Course.getActiveCourse().getExerciseByName(exerciseName).getStudentsAnswersByExerciseValue());
+         System.out.println(answers+" answersssssssssssssssssssss");
 ////////////////////
 
         recyclerView = view.findViewById(R.id.exerciseProfessorListRecycleView);
