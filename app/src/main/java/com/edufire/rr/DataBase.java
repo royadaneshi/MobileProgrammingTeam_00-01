@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DataBase {
@@ -36,6 +37,11 @@ public class DataBase {
     }
 
     public static String convertProfessorHashMapToString(HashMap<String, Professor> hashMap) {
+        Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+        String jsonString = gson.toJson(hashMap);
+        return jsonString;
+    }
+    public static String convertStudentAnswersArrayListToString(ArrayList< String> hashMap) {
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         String jsonString = gson.toJson(hashMap);
         return jsonString;
@@ -106,6 +112,18 @@ public class DataBase {
             HashMap<String, Course> courseInfo;
             courseInfo = new Gson().fromJson(jsonString,
                     new TypeToken<HashMap<String, Course>>() {
+                    }.getType());
+            return courseInfo;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static ArrayList< String> convertStringToStudentAnswersArrayList(String jsonString) {
+        try {
+           ArrayList< String> courseInfo;
+            courseInfo = new Gson().fromJson(jsonString,
+                    new TypeToken<ArrayList< String>>() {
                     }.getType());
             return courseInfo;
         } catch (Exception e) {

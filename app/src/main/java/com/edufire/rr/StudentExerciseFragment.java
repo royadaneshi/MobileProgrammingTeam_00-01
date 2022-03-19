@@ -13,10 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.edufire.rr.models.Course;
 import com.edufire.rr.models.Exercise;
+import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
 
 public class StudentExerciseFragment  extends Fragment {
 
@@ -43,6 +47,17 @@ public class StudentExerciseFragment  extends Fragment {
             public void onClick(View v) {
                 if (!answer.getText().toString().equals("")){
                     exercise.setAnswer(answer.getText().toString(), Student.getActiveUser().getUsername());
+                    //save to db
+                    DataBase.setPrefs("user", DataBase.convertUserHashMapToString(User.getUsers()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("professor", DataBase.convertProfessorHashMapToString(Professor.getAllProfessors()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("student", DataBase.convertStudentHashMapToString(Student.getAllStudents()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(), "ProfessorsData");
+                    DataBase.setPrefs("exercise", DataBase.convertExerciseHashMapToString(Exercise.getExercises()), getActivity(), "ProfessorsData");
+                    ArrayList<Exercise> exercisesList1 = new ArrayList<>(Exercise.getExercises().values());
+                    for (int j = 0; j < exercisesList1.size(); j++) {
+                        DataBase.setPrefs("StudentsAnswers", DataBase.convertStudentAnswersArrayListToString(exercisesList1.get(j).getStudentsAnswers()), getActivity(), "ProfessorsData");
+                    }
+                    //
                 }else{
                     Snackbar snackbar = Snackbar
                             .make(v, "please enter your answer", Snackbar.LENGTH_LONG);

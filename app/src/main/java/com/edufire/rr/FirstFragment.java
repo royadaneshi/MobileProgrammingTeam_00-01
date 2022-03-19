@@ -2,6 +2,7 @@ package com.edufire.rr;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.edufire.rr.models.Professor;
 import com.edufire.rr.models.Student;
 import com.edufire.rr.models.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 ///login page
@@ -33,6 +35,7 @@ public class FirstFragment extends Fragment {
         loadProfessors();
         loadCourses();
         loadExercise();
+        loadStudentsAnswers();
         return binding.getRoot();
     }
 
@@ -107,6 +110,7 @@ public class FirstFragment extends Fragment {
             Professor.setProfessors(DataBase.convertStringToProfessorHashMap(DataBase.getPrefs("professor", getActivity(), "ProfessorsData")));
         }
     }
+
     private void loadCourses() {
         if (DataBase.getPrefs("course", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("course", getActivity(), "ProfessorsData").equals("notfound")) {
             DataBase.setPrefs("course", DataBase.convertCourseHashMapToString(Course.getClasses()), getActivity(), "ProfessorsData");
@@ -120,6 +124,21 @@ public class FirstFragment extends Fragment {
             DataBase.setPrefs("exercise", DataBase.convertExerciseHashMapToString(Exercise.getExercises()), getActivity(), "ProfessorsData");
         } else {
             Exercise.setExercises(DataBase.convertStringToExerciseHashMap(DataBase.getPrefs("exercise", getActivity(), "ProfessorsData")));
+        }
+    }
+
+    private void loadStudentsAnswers() {
+        if (DataBase.getPrefs("StudentsAnswers", getActivity(), "ProfessorsData") == null || DataBase.getPrefs("StudentsAnswers", getActivity(), "ProfessorsData").equals("notfound")) {
+            ArrayList<Exercise> exercisesList1 = new ArrayList<>(Exercise.getExercises().values());
+            for (int j = 0; j < exercisesList1.size(); j++) {
+                DataBase.setPrefs("StudentsAnswers", DataBase.convertStudentAnswersArrayListToString(exercisesList1.get(j).getStudentsAnswers()), getActivity(), "ProfessorsData");
+            }
+        } else {
+            ArrayList<Exercise> exercisesList = new ArrayList<>(Exercise.getExercises().values());
+            for (int i = 0; i < exercisesList.size(); i++) {
+                exercisesList.get(i).setStudentsAnswers(DataBase.convertStringToStudentAnswersArrayList(DataBase.getPrefs("StudentsAnswers", getActivity(), "ProfessorsData")));
+
+            }
         }
     }
 
