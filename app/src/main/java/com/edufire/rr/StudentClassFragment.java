@@ -41,7 +41,7 @@ public class StudentClassFragment extends Fragment {
         args = getArguments();
         assert args != null;
         course = Course.getCourseByName(args.getString("classname"));
-        exercises.addAll(createFakeData());
+        exercises.addAll(course.getExercisesArrayList());
         View view = inflater.inflate(R.layout.fragment_student_class,container,false);
         classname = view.findViewById(R.id.student_class_fragment_class_name);
         profName = view.findViewById(R.id.student_class_fragment_prof_name);

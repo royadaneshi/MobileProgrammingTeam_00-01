@@ -37,7 +37,7 @@ public class StudentExerciseFragment  extends Fragment {
         answer = view.findViewById(R.id.student_exercise_page_answer);
         submit = view.findViewById(R.id.student_exercise_page_submit);
         status = view.findViewById(R.id.student_exercise_page_status);
-        fillFields(exercise);
+        if (exercise!=null){ fillFields(exercise);}
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -35,7 +35,9 @@ public class StudentClassAdapter extends RecyclerView.Adapter<StudentClassAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if (exercises.get(position)!=null){
         holder.exerciseName.setText(exercises.get(position).getNameOfExercise());
+        }
         holder.gotoExercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

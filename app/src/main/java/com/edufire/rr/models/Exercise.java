@@ -1,6 +1,5 @@
 package com.edufire.rr.models;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Exercise {
@@ -16,7 +15,7 @@ public class Exercise {
 
 
 
-    private HashMap<String,Exercise> studentsAnswer=new HashMap<>();
+    private HashMap<String,Exercise> studentsAnswers =new HashMap<>();
     private static HashMap<String, Exercise> exercises = new HashMap<>();
 
     public Exercise(String name, Course course,  Professor professor) {
@@ -33,7 +32,7 @@ public class Exercise {
     }
     public void setAnswer(String answer,String studentName) {
         this.answer = answer;
-        studentsAnswer.put(studentName,this);
+        studentsAnswers.put(studentName,this);
     }
 
     public static void setExercises(HashMap<String, Exercise> exercises) {
@@ -66,7 +65,8 @@ public class Exercise {
         this.grade = grade;
     }
 
-    public HashMap<String, Exercise> getStudentsAnswer() {
-        return studentsAnswer;
+    public HashMap<String, Exercise> getStudentsAnswers() {
+        return studentsAnswers;
     }
+
 }
