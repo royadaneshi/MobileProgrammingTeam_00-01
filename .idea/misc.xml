@@ -4,30 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.20989583333333334" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/activity_main.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/activity_main2.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/class_row.xml" value="0.4466666666666667" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/content_main.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_exercise_professor_list.xml" value="0.1" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_first.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_main.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_prof_excersize_row.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_professor.xml" value="0.22" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_professor_class.xml" value="0.20729166666666668" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_professor_create_class.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_professor_exercise_answer_row.xml" value="0.5" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_professor_my_classes.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_professor_panel.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student_class.xml" value="0.40840140023337224" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student_exercise_page.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student_exercise_row.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student_join_class.xml" value="0.5" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student_my_classes.xml" value="0.18229166666666666" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_student_panel.xml" value="0.4466666666666667" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/fragment_test.xml" value="0.20729166666666668" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/student_class_row.xml" value="0.5" />
-        <entry key="..\:/Education/SUT/Spring 00-01/mobile programming/HW/HW 1/MobileProgrammingTeam_00-01/app/src/main/res/layout/student_join_class_row.xml" value="0.5" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2845" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2845" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35625" />
@@ -62,6 +38,8 @@
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_student.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_student_class.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/fragment_student_exercise_page.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/fragment_student_join_class.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_student_my_classes.xml" value="0.18177083333333333" />
         <entry key="app/src/main/res/layout/fragment_student_panel.xml" value="0.5" />
