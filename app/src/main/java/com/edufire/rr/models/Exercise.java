@@ -14,7 +14,7 @@ public class Exercise {
     private Course course;
     private String answer;
     private Professor professor;
-    private Integer grade;
+    private String grade;
 
 
 
@@ -75,12 +75,14 @@ public class Exercise {
         return exercises.get(name);
     }
 
-    public Integer getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(Integer grade) {
+    public void setGrade(String grade) {
+        System.out.println("before set"+getGrade());
         this.grade = grade;
+        System.out.println("after set"+getGrade());
     }
 
     public HashMap<String, Exercise> getStudentsAnswersByExerciseValue() {

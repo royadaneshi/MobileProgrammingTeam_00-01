@@ -76,8 +76,10 @@ public class StudentExerciseFragment  extends Fragment {
             status.setText("Exercise to be graded!");
             answer.setText(exercise.getAnswer());
         }
+        System.out.println("before condition "+exercise.getAnswer());
         if (exercise.getGrade()!=null){
-            status.setText("Your Exercise grade is" + String.valueOf(exercise.getGrade()));
+            System.out.println("After Condition"+exercise.getGrade());
+            status.setText("Your Exercise grade is" + exercise.getGrade());
             submit.setEnabled(false);
             answer.setEnabled(false);
         }

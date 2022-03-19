@@ -6,32 +6,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.edufire.rr.models.Exercise;
-import com.edufire.rr.models.Student;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-public class ExecriseProfessorListAdapter extends RecyclerView.Adapter<ExecriseProfessorListAdapter.ViewHolder> {
+public class ExerciseProfessorListAdapter extends RecyclerView.Adapter<ExerciseProfessorListAdapter.ViewHolder> {
     HashMap<String, Exercise> exercises = new HashMap<>();
-    ArrayList<String> students = new ArrayList<>(exercises.keySet());
-    ArrayList<Exercise> exercisesList = new ArrayList<>(exercises.values());
+    ArrayList<String> students = new ArrayList<>();
+    ArrayList<Exercise> exercisesList = new ArrayList<>();
 
-    public ExecriseProfessorListAdapter(HashMap<String, Exercise> exercises) {
+    public ExerciseProfessorListAdapter(HashMap<String, Exercise> exercises) {
         this.exercises = exercises;
+        if (students == null){
+            students = new ArrayList<String>();
+            exercisesList = new ArrayList<>();
+        }
+        students.addAll(exercises.keySet());
+        exercisesList.addAll(exercises.values());
+        System.out.println(exercises.size());
     }
 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_professor_exercise_answer_row, parent, false);
+    public ExerciseProfessorListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         System.out.println("/hhhhhhhhhhhhhereeeeeeeee");
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_professor_exercise_answer_row, parent, false);
+        for (String student : students) {
+            System.out.println(student);
+        }
         return new ViewHolder(view);
 
     }
@@ -43,7 +54,7 @@ public class ExecriseProfessorListAdapter extends RecyclerView.Adapter<ExecriseP
         holder.answer.setText(exercisesList.get(position).getAnswer());
 
         if (exercisesList.get(position).getGrade() == null) {
-            exercisesList.get(position).setGrade(0);
+            exercisesList.get(position).setGrade("0");
         }
         holder.score.setText(exercisesList.get(position).getGrade());
         String temp_student = students.get(position);
@@ -51,19 +62,19 @@ public class ExecriseProfessorListAdapter extends RecyclerView.Adapter<ExecriseP
             @Override
             public void onClick(View view) {
                 /////
-                    exercises.get(temp_student).setGrade(Integer.parseInt(holder.score.toString()));
+                    Objects.requireNonNull(exercises.get(temp_student)).setGrade(holder.score.getText().toString());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return students.size();
+        return exercises.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        EditText studentName;
-        EditText answer;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView studentName;
+        TextView answer;
         EditText score;
         Button submit;
 

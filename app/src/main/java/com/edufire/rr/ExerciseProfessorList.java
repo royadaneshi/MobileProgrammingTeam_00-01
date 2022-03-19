@@ -27,16 +27,13 @@ public class ExerciseProfessorList extends Fragment {
         bundle = getArguments();
         View view = inflater.inflate(R.layout.fragment_exercise_professor_list, container, false);
         exerciseName = bundle.getString("exerciseName");
-        //////////////
-        System.out.println(Course.getActiveCourse().getExerciseByName(exerciseName).getStudentsAnswersByExerciseValue().get("44").getAnswer()+" ///////////////////////////");
         answers.putAll(Course.getActiveCourse().getExerciseByName(exerciseName).getStudentsAnswersByExerciseValue());
-         System.out.println(answers+" answersssssssssssssssssssss");
-////////////////////
 
         recyclerView = view.findViewById(R.id.exerciseProfessorListRecycleView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new ExecriseProfessorListAdapter(answers));
+        recyclerView.setAdapter(new ExerciseProfessorListAdapter(answers));
+
         return view;
     }
 }
