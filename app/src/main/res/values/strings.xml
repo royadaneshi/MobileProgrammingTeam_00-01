@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Assignment_App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login1">login</string>
+
+    <string name="hello_first_fragment">sign up ro if already have an account sign in</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="usernamep">usernameP</string>
+    <string name="professor">Professor</string>
+    <string name="student">Student</string>
+    <string name="do_not_have_an_account">Do not have an account</string>
+    <string name="username">username</string>
+    <string name="studentId">Student Id</string>
+    <string name="password">Password</string>
+    <string name="universityname">universityName</string>
+    <string name="completename">completeName</string>
+    <string name="student_panel">Student Panel</string>
+    <string name="professor_panel">Professor Panel</string>
+
+    // professor panel strings
+    <string name="prof_panel_create_class">Create Class</string>
+    <string name="prof_my_classes">My Classes</string>
+
+    // student panel strings
+    <string name="student_panel_my_classes_string">My Classes</string>
+    <string name="student_panel_join_class_string">join</string>
+
+    // professor create class strings
+    <string name="prof_enter_name">Enter Your Class Name</string>
+    <string name="prof_create_class">Create</string>
+    <string name="back">back</string>
+    <string name="my_classe">My Classe</string>
+
+
+</resources>
