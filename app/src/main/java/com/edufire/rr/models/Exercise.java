@@ -25,6 +25,7 @@ public class Exercise {
         this.name = name;
         this.professor = professor;
         this.course = course;
+        this.grade=null;
         exercises.put(name, this);
     }
 
@@ -87,8 +88,6 @@ public class Exercise {
 
     public HashMap<String, Exercise> getStudentsAnswersByExerciseValue() {
         HashMap<String,Exercise> newHash=new HashMap<>();
-//        ArrayList<String> exercisesName=new ArrayList<>(studentsAnswers.values());
-//        ArrayList<String> studentsName=new ArrayList<>(studentsAnswers.keySet());
         for (int i = 0; i < studentsAnswers.size(); i++) {
             newHash.put(studentsAnswers.get(i),this);
         }
